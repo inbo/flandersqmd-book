@@ -205,6 +205,24 @@ function levelcss (entity)
   return css
 end
 
+function watermark(lang, flandersqmd)
+  local result = ""
+  if not is_empty(flandersqmd.watermark) then
+    result = pandoc.utils.stringify(flandersqmd.watermark)
+  end
+  if not(is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer)) and not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr) or is_empty(flandersqmd.reportnr)) then
+    return result
+  end
+  if (lang == "nl-BE") then
+    result = "ONTWERP " .. result
+  elseif (lang == "fr-FR") then
+    result = "CONCEPTION " .. result
+  else
+    result = "DRAFT " .. result
+  end
+  return result
+end
+
 return {
   {
     Meta = function(meta)
@@ -229,6 +247,7 @@ return {
         end
       end
       meta.entitycss = levelcss(meta.entitycolours)
+      meta.watermark = watermark(pandoc.utils.stringify(meta.lang), meta.flandersqmd)
       if is_empty(meta.flandersqmd.author) then
         meta.shortauthor = pandoc.RawInline(
           "html",

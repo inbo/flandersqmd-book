@@ -1,8 +1,6 @@
 \documentclass[twoside]{extreport}
 \usepackage{report-generic}
 \usepackage{report-language}
-%\usepackage{report-calibri}
-%\usepackage{flanders-colours}
 % Alter some LaTeX defaults for better treatment of figures:
 % See p.105 of "TeX Unbound" for suggested values.
 % See pp. 199-200 of Lamport's "LaTeX" book for details.
@@ -21,6 +19,11 @@
 % N.B.: floatpagefraction MUST be less than topfraction !!
 \renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
 \pagenumbering{arabic}
+
+$if(watermark)$
+\usepackage[colorspec=0.9, fontsize=0.1\paperwidth, angle=90, hpos=5mm, anchor=lm]{draftwatermark}
+\DraftwatermarkOptions{text={$watermark$}}
+$endif$
 
 $if(flandersqmd.title)$
 \title{$flandersqmd.title$}
