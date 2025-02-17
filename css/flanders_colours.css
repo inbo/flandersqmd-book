@@ -1,0 +1,31 @@
+:root {
+  --navbar-background: #FFED00;
+  --navbar-text-color: #333332;
+  --navbar-hover-color: #004099;
+  --heading-color: #333332;
+  --text-color: #000000;
+  --link-color: #0055CC;
+  --missing-color: #FF0000;
+  --callout-note-color: #282A72;
+  --callout-note-background: #282A7244;
+  --callout-tip-color: #729BB7;
+  --callout-tip-background: #729BB744;
+  --callout-caution-color: #EF972C;
+  --callout-caution-background: #EF972C44;
+  --callout-warning-color: #FFCD34;
+  --callout-warning-background: #FFCD3444;
+  --callout-important-color: #BE3254;
+  --callout-important-background: #BE325444;
+  --code-error-border: #BE3254;
+  --code-error-background: #BE325444;
+  --code-warning-border: #EF972C;
+  --code-warning-background: #EF972C44;
+  --code-argument: #EF972C;
+  --code-comment: #282A72;
+  --code-function: #356196;
+  --code-logical: #C63526;
+  --code-number: #C63526;
+  --code-string: #006635;
+  --code-background: #F3F3F3;
+  --code-border: #8E9DA7;
+}

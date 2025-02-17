@@ -1,0 +1,27 @@
+title: Corporate identity of the Flemish government quarto books
+author: Thierry Onkelinx
+version: 0.1.0
+quarto-required: ">=1.4.0"
+contributes:
+  project:
+    project:
+      type: book
+  format:
+    common:
+      knitr:
+        opts_chunk:
+          echo: false
+      lang: nl-BE
+      csl: research-institute-for-nature-and-forest.csl
+      number-sections: true
+      toc: true
+      html-math-method: katex
+      filters:
+        - filters/translations_generic.lua
+      shortcodes:
+        - shortcodes/colophon.lua
+        - shortcodes/footer.lua
+    html+inbo+flanders:
+      css: [css/flanders_colours.css, css/flanders_generic.css]
+      filters:
+        - filters/translations_inbo.lua
