@@ -25,3 +25,7 @@ contributes:
       css: [css/flanders_colours.css, css/flanders_generic.css]
       filters:
         - filters/translations_inbo.lua
+    html+inbo+entity:
+      css: [css/inbo_colours.css, css/flanders_generic.css]
+      filters:
+        - filters/translations_inbo.lua
