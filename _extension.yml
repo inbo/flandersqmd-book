@@ -23,6 +23,7 @@ contributes:
       css: [css/flanders_generic.css]
       template-partials:
         - "partials/metadata.html"
+        - "partials/title-block.html"
       filters:
         - filters/translations.lua
     pdf:

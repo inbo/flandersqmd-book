@@ -12,4 +12,18 @@ $endfor$
 <style>
 $entitycss$
 </style>
+$if(watermark)$
+<style type="text/css">
+#watermark{
+  position: fixed;
+  top: 50%;
+  left: 0%;
+  z-index: 999;
+  transform: rotate(-90deg);
+  opacity: 0.2;
+  font-size: 5em;
+  text-align: center;
+}
+</style>
+$endif$
 <title>$pagetitle$$if(title-prefix)$ – $title-prefix$$endif$</title>

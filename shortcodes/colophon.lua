@@ -419,6 +419,10 @@ return {
       z = z .. '</div>' .. '</div>'
     end
 
+    if not is_empty(meta.watermark) then
+      z = z .. '<div id="watermark">' .. meta.watermark .. '</div>'
+    end
+
 --[[finalise]]
     z = z .. '</div>'
 
