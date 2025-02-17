@@ -1,0 +1,15 @@
+<meta charset="utf-8" />
+$if(quarto-version)$
+<meta name="generator" content="quarto-$quarto-version$" />
+$else$
+<meta name="generator" content="quarto" />
+$endif$
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+$for(flandersqmd.author)$
+<meta name="author" content="$flandersqmd.author.name.given$ $flandersqmd.author.name.family$" />
+$endfor$
+<style>
+$entitycss$
+</style>
+<title>$pagetitle$$if(title-prefix)$ – $title-prefix$$endif$</title>

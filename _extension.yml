@@ -16,16 +16,12 @@ contributes:
       number-sections: true
       toc: true
       html-math-method: katex
-      filters:
-        - filters/translations_generic.lua
       shortcodes:
         - shortcodes/colophon.lua
         - shortcodes/footer.lua
-    html+inbo+flanders:
-      css: [css/flanders_colours.css, css/flanders_generic.css]
+    html:
+      css: [css/flanders_generic.css]
+      template-partials:
+        - "partials/metadata.html"
       filters:
-        - filters/translations_inbo.lua
-    html+inbo+entity:
-      css: [css/inbo_colours.css, css/flanders_generic.css]
-      filters:
-        - filters/translations_inbo.lua
+        - filters/translations.lua

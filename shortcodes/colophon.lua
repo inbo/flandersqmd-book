@@ -187,37 +187,37 @@ return {
   if not is_empty(meta.translation.issn_nr) then
     z = z .. '<div>' .. '<div class="quarto-title-meta-heading">ISSN</div>' ..
       '<div class="quarto-title-meta-contents">' ..
-      meta.entity.issn_nr .. '</div>'.. '</div>'
+      meta.translation.issn_nr .. '</div>'.. '</div>'
   end
 
 --[ insert vu]
-  if not is_empty(meta.entity.vu_name) then
+  if not is_empty(meta.translation.vu_name) then
     z = z .. '<div>' .. '<div class="quarto-title-meta-heading">' ..
       meta.translation.vu .. '</div>' ..
       '<div class="quarto-title-meta-contents">' .. '<p>' ..
-      meta.entity.vu_name .. '</div>'.. '</div>'
+      meta.translation.vu_name .. '</div>'.. '</div>'
   end
 
 --[[end meta]]
     z = z .. '</div>'
 
 --[ insert mission]
-  if not is_empty(meta.entity.mission) then
+  if not is_empty(meta.translation.mission) then
     z = z .. '<div class="quarto-title-meta-contents">' ..
-      meta.entity.mission .. '</div>'
+      meta.translation.mission .. '</div>'
   end
 
 --[ insert address]
-  if not is_empty(meta.entity.address) then
+  if not is_empty(meta.translation.address) then
     z = z .. '<div>' .. '<div class="quarto-title-meta-heading">' ..
       meta.translation.location .. '</div>' ..
-      '<div class="quarto-title-meta-contents">' .. meta.entity.address
-    if not is_empty(meta.entity.url) then
-      z = z .. ' <a href = "' .. meta.entity.url .. '">'
-      if is_empty(meta.entity.url_text) then
-        z = z .. meta.entity.url .. '</a>'
+      '<div class="quarto-title-meta-contents">' .. meta.translation.address
+    if not is_empty(meta.translation.url) then
+      z = z .. ' <a href = "' .. meta.translation.url .. '">'
+      if is_empty(meta.translation.url_text) then
+        z = z .. meta.translation.url .. '</a>'
       else
-        z = z .. meta.entity.url_text .. '</a>'
+        z = z .. meta.translation.url_text .. '</a>'
       end
     end
     z = z .. '</div>'
@@ -245,11 +245,11 @@ return {
       z = z .. pandoc.utils.stringify(meta.flandersqmd.subtitle) .. '. '
     end
   end
-  if not is_empty(meta.entity.name) then
+  if not is_empty(meta.translation.name) then
     if not is_empty(meta.translation.series) then
       z = z .. meta.translation.series .. ' '
     end
-    z = z .. meta.entity.name .. ' '
+    z = z .. meta.translation.name .. ' '
   end
   if is_empty(meta.flandersqmd.year) then
     z = z .. '<h1 class = "missing">!!! Missing flandersqmd.year !!!</h1>'
@@ -261,7 +261,7 @@ return {
   else
     z = z .. '(' .. pandoc.utils.stringify(meta.flandersqmd.reportnr) .. '). '
   end
-  z = z .. meta.entity.name .. ', ' .. meta.entity.city .. '. DOI: '
+  z = z .. meta.translation.name .. ', ' .. meta.translation.city .. '. DOI: '
   if is_empty(meta.flandersqmd.doi) then
     z = z .. '<h1 class = "missing">!!! Missing flandersqmd.doi !!!</h1>'
   else
@@ -295,11 +295,11 @@ return {
       end
       z = z .. '},\n'
     end
-    if not is_empty(meta.entity.name) then
-      z = z .. '  institution = {' .. meta.entity.name .. '},\n'
+    if not is_empty(meta.translation.name) then
+      z = z .. '  institution = {' .. meta.translation.name .. '},\n'
     end
-    if not is_empty(meta.entity.address) then
-      z = z .. '  address = {' .. meta.entity.address .. '},\n'
+    if not is_empty(meta.translation.address) then
+      z = z .. '  address = {' .. meta.translation.address .. '},\n'
     end
     if is_empty(meta.flandersqmd.year) then
       z = z .. '<h1 class = "missing">!!! Missing flandersqmd.year !!!</h1>'
@@ -339,11 +339,11 @@ return {
       local x = pandoc.utils.stringify(meta.flandersqmd.doi)
       z = z .. 'DO  - ' .. x .. '\n'
     end
-    if not is_empty(meta.entity.name) then
-      z = z .. 'PB  - ' .. meta.entity.name .. '\n'
+    if not is_empty(meta.translation.name) then
+      z = z .. 'PB  - ' .. meta.translation.name .. '\n'
     end
-    if not is_empty(meta.entity.address) then
-      z = z .. 'PP  - ' .. meta.entity.address .. '\n'
+    if not is_empty(meta.translation.address) then
+      z = z .. 'PP  - ' .. meta.translation.address .. '\n'
     end
     if not is_empty(meta.flandersqmd.year) then
       local x = pandoc.utils.stringify(meta.flandersqmd.year)
@@ -374,11 +374,11 @@ return {
       y = pandoc.utils.stringify(meta.flandersqmd.year)
       z = z .. '  "issued":{"date-parts":[[' .. y .. ']]},\n'
     end
-    if not is_empty(meta.entity.name) then
-      z = z .. '  "publisher":" "' .. meta.entity.name .. '",\n'
+    if not is_empty(meta.translation.name) then
+      z = z .. '  "publisher":" "' .. meta.translation.name .. '",\n'
     end
-    if not is_empty(meta.entity.address) then
-      z = z .. '  "publisher-place":"' .. meta.entity.address .. '",\n'
+    if not is_empty(meta.translation.address) then
+      z = z .. '  "publisher-place":"' .. meta.translation.address .. '",\n'
     end
     z = z .. '}\n' .. '</pre>' .. '</div>'
     if not is_empty(meta.flandersqmd.cover) then
