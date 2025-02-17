@@ -1,0 +1,86 @@
+\documentclass[twoside]{extreport}
+\usepackage{report-generic}
+\usepackage{report-language}
+%\usepackage{report-calibri}
+%\usepackage{flanders-colours}
+% Alter some LaTeX defaults for better treatment of figures:
+% See p.105 of "TeX Unbound" for suggested values.
+% See pp. 199-200 of Lamport's "LaTeX" book for details.
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+\pagenumbering{arabic}
+
+$if(flandersqmd.title)$
+\title{$flandersqmd.title$}
+$if(flandersqmd.subtitle)$
+\subtitle{$flandersqmd.subtitle$}
+\citationtitle{$flandersqmd.title$. $flandersqmd.subtitle$}
+$else$
+\citationtitle{$flandersqmd.title$}
+$endif$
+$else$
+\title{!!! Missing flandersqmd.title !!!}
+\citationtitle{!!! Missing flandersqmd.title !!!}
+$endif$
+\titleauthor{$title_author$}
+\colophonauthor{$colophon_author$}
+\colophonauthortag{$translation.author_pdf$}
+\reviewer{$reviewer$}
+\reviewertag{$translation.reviewer_pdf$}
+\missiontag{$translation.mission$}
+\entityname{$translation.name$}
+\entityaddress{$translation.address$}
+\locationtag{$translation.location$}
+\tagline{$translation.tagline$}
+\definecolours{$entitycolours$}
+\entityurl{$translation.url$}
+\entityurltext{$translation.url_text$}
+$if(flandersqmd.doi)$
+\doi{$flandersqmd.doi$}
+$endif$
+$if(flandersqmd.ordernr)$
+\ordernumber{$flandersqmd.ordernr$}
+$endif$
+\pagefootmessage{$pagefooter$}
+\corresponding{$corresponding$}
+\country{$translation.country$}
+\citationtag{$translation.citation$}
+\shortauthor{$shortauthor$}
+$if(flandersqmd.year)$
+\citationyear{$flandersqmd.year$}
+$endif$
+$if(flandersqmd.reportnr)$
+\reportnr{$flandersqmd.reportnr$}
+$endif$
+$if(flandersqmd.depotnr)$
+\depotnr{$flandersqmd.depotnr$}
+$endif$
+\seriestag{$translation.series$}
+\city{$translation.city$}
+\issn{$translation.issn_nr$}
+\vu{$translation.vu$}
+\vuname{$translation.vu_name$}
+\covertag{$translation.coverdescription$}
+$if(flandersqmd.coverdescription)$
+\coverdescription{$flandersqmd.coverdescription$}
+$endif$
+\client{$client$}
+\cooperation{$cooperation$}
+\ccby{$ccby$}
+$if(titlelogo)$
+\titlelogo{\includegraphics[height = 17mm, keepaspectratio]{$titlelogo$}}
+$else$
+\titlelogo{\vspace{17mm}}
+$endif$

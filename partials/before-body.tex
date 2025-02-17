@@ -1,0 +1,15 @@
+$if(flandersqmd.cover)$
+\includepdf[pages=1]{$flandersqmd.cover$}
+$endif$
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+$if(beamer)$
+$if(flandersqmd.title)$
+\frame{\titlepage}
+$else$
+\frame{!!! Missing flandersqmd.title !!!}
+$endif$
+$else$
+\maketitle
+$endif$

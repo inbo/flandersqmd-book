@@ -25,3 +25,30 @@ contributes:
         - "partials/metadata.html"
       filters:
         - filters/translations.lua
+    pdf:
+      template-partials:
+        - "partials/before-body.tex"
+        - "partials/doc-class.tex"
+      format-resources:
+        - img/cc-by.eps
+        - img/flanders-state-art.pdf
+        - img/inbo-logo.pdf
+        - img/orcid.eps
+        - img/vlaamse-overheid.pdf
+        - img/vlaanderen-wetenschap.pdf
+        - tex/report-generic.sty
+        - tex/report-language.sty
+      filters:
+        - filters/translations.lua
+        - filters/prepare_pdf.lua
+      shortcodes:
+        - shortcodes/colophon.lua
+        - shortcodes/footer.lua
+      pdf-engine: xelatex
+      toc: false
+      lof: false
+      lot: false
+      link-citations: true
+      keep-tex: true
+      mainfont: Calibri
+      monofont: Inconsolatazi4
