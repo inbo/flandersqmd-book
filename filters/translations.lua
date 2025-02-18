@@ -257,6 +257,15 @@ return {
         meta.shortauthor = shortauthor(meta.flandersqmd.author)
         meta.ccby = pandoc.RawInline("latex", meta.translation.ccby)
       end
+      if is_empty(meta.flandersqmd.doi) then
+        if is_empty(meta.flandersqmd.colophon) then
+          meta.displaycolophon = false
+        else
+          meta.displaycolophon = meta.flandersqmd.colophon
+        end
+      else
+        meta.displaycolophon = true
+      end
       return meta
     end
   }
