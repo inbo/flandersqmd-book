@@ -138,7 +138,7 @@ return {
     z = z .. '</div>' .. '</div>'
 
 --[[add reviewer]]
-    if meta.displaycolophon then
+    if tonumber(pandoc.utils.stringify(meta.displaycolophon)) > 0 then
       if not is_empty(meta.flandersqmd.reviewer) then
         z = z .. '<div>' .. '<div class="quarto-title-meta-heading">' ..
           meta.translation.reviewer .. '</div>' ..

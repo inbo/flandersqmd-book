@@ -258,13 +258,13 @@ return {
         meta.ccby = pandoc.RawInline("latex", meta.translation.ccby)
       end
       if is_empty(meta.flandersqmd.doi) then
-        if is_empty(meta.flandersqmd.colophon) then
-          meta.displaycolophon = false
+        if not is_empty(meta.flandersqmd.colophon) and meta.flandersqmd.colophon then
+            meta.displaycolophon = 1
         else
-          meta.displaycolophon = meta.flandersqmd.colophon
+          meta.displaycolophon = 0
         end
       else
-        meta.displaycolophon = true
+        meta.displaycolophon = 1
       end
       return meta
     end

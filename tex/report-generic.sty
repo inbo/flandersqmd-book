@@ -45,6 +45,9 @@
 \def\depotnr#1{\def\@depotnr{#1}}
 \depotnr{!!! missing flandersqmd.depotnr !!!}
 
+\def\displaycolophon#1{\def\@displaycolophon{#1}}
+\displaycolophon{}
+
 \def\doi#1{\def\@doi{#1}}
 \doi{!!! missing flandersqmd.doi !!!}
 
@@ -437,7 +440,7 @@
 
 % define title page
 \def\maketitle{%
-  % \ifnum \@colophon > 0
+  \ifnum \@displaycolophon > 0
     \thispagestyle{empty}{%
       \begin{flushleft}
 
@@ -479,7 +482,7 @@
 
       \clearpage
     }
-  % \fi
+  \fi
   \thispagestyle{cover}{%
     \@titlelogo \phantom{qk}
 
