@@ -10,7 +10,6 @@ function translation_entity(result, lang, entity)
       result.city = "Brussel"
       result.mission = "Het INBO is het onafhankelijk onderzoeksinstituut van de Vlaamse overheid dat via toegepast wetenschappelijk onderzoek, data- en kennisontsluiting het biodiversiteitsbeleid en -beheer onderbouwt en evalueert."
       result.name = "Instituut voor Natuur- en Bosonderzoek"
-      result.series = "Rapporten van het"
       result.tagline = "vlaanderen-wetenschap.pdf"
       result.url = "https://www.vlaanderen.be/inbo"
       result.url_text = "vlaanderen.be/inbo"
@@ -19,7 +18,6 @@ function translation_entity(result, lang, entity)
       result.city = "Bruxelles"
       result.mission = "l'Institut de Recherche sur la Nature et les Forêts ('Instituut voor Natuur- en Bosonderzoek', INBO) est un institut de recherche indépendant du gouvernement flamand, qui étaye et évalue la politique et la gestion en matière de biodiversité par la recherche scientifique appliquée, l'intégration et la dissémination publique de données et de connaissances."
       result.name = "l'Institut de Recherche sur la Nature et les Forêts"
-      result.series = "Rapports de"
       result.tagline = "flanders-state-art.pdf"
       result.url = "https://www.vlaanderen.be/inbo/en-gb/homepage/"
       result.url_text = "vlaanderen.be/inbo"
@@ -62,6 +60,7 @@ function translation(lang, entity)
       coverdescription = "Foto cover",
       depotnr = "Depotnummer",
       export = "Exporteer referentie als",
+      iseries = "Interne rapporten van het",
       location = "Vestiging",
       mission = "Hier komt de missie",
       ordernr = "Opdrachtnummer",
@@ -83,6 +82,7 @@ function translation(lang, entity)
       coverdescription = "Photo de couverture",
       depotnr = "Numéro de dépôt",
       export = "Exporter la référence à",
+      iseries = "Rapports internes de",
       location = "Adresse",
       mission = "Mission statement",
       ordernr = "Numéro de commande",
@@ -104,6 +104,7 @@ function translation(lang, entity)
       coverdescription = "Cover photo",
       depotnr = "Deposit number",
       export = "Export reference to",
+      iseries = "Internal reports of the",
       location = "Location",
       mission = "Misson statement",
       ordernr = "Order number",
@@ -210,7 +211,7 @@ function watermark(lang, flandersqmd)
   if not is_empty(flandersqmd.watermark) then
     result = pandoc.utils.stringify(flandersqmd.watermark)
   end
-  if not(is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer)) and not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr) or is_empty(flandersqmd.reportnr)) then
+  if not (is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer) or is_empty(flandersqmd.reportnr)) and (not flandersqmd.public_report or (not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr)))) then
     return result
   end
   if (lang == "nl-BE") then
@@ -258,13 +259,23 @@ return {
         meta.ccby = pandoc.RawInline("latex", meta.translation.ccby)
       end
       if is_empty(meta.flandersqmd.doi) then
-        if not is_empty(meta.flandersqmd.colophon) and meta.flandersqmd.colophon then
-            meta.displaycolophon = 1
+        if not is_empty(meta.flandersqmd.reportnr) then
+          meta.displaycolophon = 1
         else
-          meta.displaycolophon = 0
+          if not is_empty(meta.flandersqmd.colophon) and meta.flandersqmd.colophon then
+            meta.displaycolophon = 1
+          else
+            meta.displaycolophon = 0
+          end
+        end
+        if is_empty(meta.flandersqmd.public_report) or meta.flandersqmd.public_report then
+          meta.public = 1
+        else
+          meta.public = 0
         end
       else
         meta.displaycolophon = 1
+        meta.public = 1
       end
       return meta
     end

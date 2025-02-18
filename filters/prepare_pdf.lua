@@ -6,7 +6,15 @@ local function pdf_footer(meta)
   local z
   if is_empty(meta.flandersqmd.doi) then
     if tonumber(pandoc.utils.stringify(meta.displaycolophon)) > 0 then
-      z = "!!! missing flandersqmd.doi !!!"
+      if tonumber(pandoc.utils.stringify(meta.public)) > 0 then
+        z = "!!! missing flandersqmd.doi !!!"
+      else
+        if is_empty(meta.flandersqmd.reportnr) then
+          z = "!!! missing flandersqmd.reportnr !!! \\DTMnow"
+        else
+          z = pandoc.utils.stringify(meta.flandersqmd.reportnr) .. " \\DTMnow"
+        end
+      end
     else
       z = "\\DTMnow"
     end

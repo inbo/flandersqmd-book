@@ -78,6 +78,9 @@
 \def\pagefootmessage#1{\def\@pagefootmessage{#1}}
 \pagefootmessage{}
 
+\def\public#1{\def\@public{#1}}
+\public{1}
+
 \def\reportnr#1{\def\@reportnr{#1}}
 \reportnr{!!! missing flandersqmd.reportnr !!!}
 
@@ -89,6 +92,9 @@
 
 \def\seriestag#1{\def\@seriestag{#1}}
 \seriestag{}
+
+\def\iseriestag#1{\def\@iseriestag{#1}}
+\iseriestag{}
 
 \def\shortauthor#1{\def\@shortauthor{#1}}
 \shortauthor{}
@@ -457,17 +463,11 @@
       \textbf{e-mail:} \\ \@corresponding
 
       \textbf{\@citationtag:} \\
-  %   \ifnum \@public = 0
-  %     \@shortauthor~(\@citationyear). \@citetitle. \cfiseries~\@citationyear~(\@reportnr). \cfinbo, \cfcity.
-  %
-  %     \textbf{\cfiseries~\@citationyear~(\@reportnr)}
-  %   \else
-        \@shortauthor~(\@citationyear). \@citationtitle. \@seriestag~\@entityname~\@citationyear~(\@reportnr). \@entityname, \@city. DOI: \href{https://doi.org/\@doi}{\@doi}
+        \@shortauthor~(\@citationyear). \@citationtitle. \ifnum \@public > 0 \@seriestag\else\@iseriestag\fi~\@entityname~\@citationyear~(\@reportnr). \@entityname, \@city. \ifnum \@public > 0 DOI: \href{https://doi.org/\@doi}{\@doi} \\ \fi
 
-      \textbf{\@depotnr} \\
-      \textbf{\@seriestag~\@entityname~\@citationyear~(\@reportnr)} \\
+      \ifnum \@public > 0 \textbf{\@depotnr} \\ \fi
+      \textbf{\ifnum \@public > 0 \@seriestag\else\@iseriestag\fi~\@entityname~\@citationyear~(\@reportnr)} \\
       \textbf{ISSN: \@issn}
-  %   \fi
 
       \textbf{\@vu:} \\ \@vuname
 
@@ -505,11 +505,10 @@
       \fontsize{\fontsizeauthor}{\fontsizeauthorinter}\selectfont \raggedright \@titleauthor
     }
     \vspace{144pt}
-
     \hspace{10mm}\parbox[t]{140mm}{
        \fontsize{\fontsizeordernr}{\fontsizeordernrinter}\selectfont \raggedright
-    \ifnum \@displaycolophon > 0 \@doi \else \DTMnow \fi \\
-       \@ordernumber
+    \ifnum \@displaycolophon > 0 \ifnum \@public > 0 \@doi \\ \fi \else \DTMnow \\ \fi
+    \@ordernumber
   }
 
   \vfill
