@@ -438,6 +438,8 @@
 
 \RequirePackage{fontawesome5}
 
+\RequirePackage{datetime2}
+
 % define title page
 \def\maketitle{%
   \ifnum \@displaycolophon > 0
@@ -506,8 +508,7 @@
 
     \hspace{10mm}\parbox[t]{140mm}{
        \fontsize{\fontsizeordernr}{\fontsizeordernrinter}\selectfont \raggedright
-    %   \ifnum \@public > 1
-                             \@doi \\ % \fi
+    \ifnum \@displaycolophon > 0 \@doi \else \DTMnow \fi \\
        \@ordernumber
   }
 
