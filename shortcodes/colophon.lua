@@ -150,15 +150,17 @@ return {
       end
 
   --[ insert DOI]
-      z = z .. '<div>' .. '<div class="quarto-title-meta-heading">DOI</div>' ..
-        '<div class="quarto-title-meta-contents" class="doi">'
-      if is_empty(meta.flandersqmd.doi) then
-        z = z .. '<h1 class = "missing">!!! Missing flandersqmd.doi !!!</h1>'
-      else
-        local x = pandoc.utils.stringify(meta.flandersqmd.doi)
-        z = z .. '<a href="https://doi.org/' .. x .. '">' .. x .. '</a>'
+      if tonumber(pandoc.utils.stringify(meta.public)) > 0 then
+        z = z .. '<div>' .. '<div class="quarto-title-meta-heading">DOI</div>' ..
+          '<div class="quarto-title-meta-contents" class="doi">'
+        if is_empty(meta.flandersqmd.doi) then
+          z = z .. '<h1 class = "missing">!!! Missing flandersqmd.doi !!!</h1>'
+        else
+          local x = pandoc.utils.stringify(meta.flandersqmd.doi)
+          z = z .. '<a href="https://doi.org/' .. x .. '">' .. x .. '</a>'
+        end
+        z = z .. '</div>'.. '</div>'
       end
-      z = z .. '</div>'.. '</div>'
 
   --[ insert year]
     if not is_empty(meta.flandersqmd.year) then
@@ -177,15 +179,16 @@ return {
     end
 
   --[ insert depotnumber]
-    if not is_empty(meta.flandersqmd.depotnr) then
+    if tonumber(pandoc.utils.stringify(meta.public)) > 0 and  not is_empty(meta.flandersqmd.depotnr) then
       z = z .. '<div>' .. '<div class="quarto-title-meta-heading">' ..
         meta.translation.depotnr .. '</div>' ..
         '<div class="quarto-title-meta-contents">' .. '<p>' ..
         pandoc.utils.stringify(meta.flandersqmd.depotnr) .. '</div>'.. '</div>'
     end
 
+
   --[ insert issn]
-    if not is_empty(meta.translation.issn_nr) then
+    if tonumber(pandoc.utils.stringify(meta.public)) > 0 and not is_empty(meta.translation.issn_nr) then
       z = z .. '<div>' .. '<div class="quarto-title-meta-heading">ISSN</div>' ..
         '<div class="quarto-title-meta-contents">' ..
         meta.translation.issn_nr .. '</div>'.. '</div>'
@@ -248,7 +251,11 @@ return {
     end
     if not is_empty(meta.translation.name) then
       if not is_empty(meta.translation.series) then
-        z = z .. meta.translation.series .. ' '
+        if tonumber(pandoc.utils.stringify(meta.public)) > 0 then
+          z = z .. meta.translation.series .. ' '
+        else
+          z = z .. meta.translation.iseries .. ' '
+        end
       end
       z = z .. meta.translation.name .. ' '
     end
@@ -262,12 +269,15 @@ return {
     else
       z = z .. '(' .. pandoc.utils.stringify(meta.flandersqmd.reportnr) .. '). '
     end
-    z = z .. meta.translation.name .. ', ' .. meta.translation.city .. '. DOI: '
-    if is_empty(meta.flandersqmd.doi) then
-      z = z .. '<h1 class = "missing">!!! Missing flandersqmd.doi !!!</h1>'
-    else
-      local x = pandoc.utils.stringify(meta.flandersqmd.doi)
-      z = z .. '<a href="https://doi.org/' .. x .. '">' .. x .. '</a>'
+    z = z .. meta.translation.name .. ', ' .. meta.translation.city
+    if tonumber(pandoc.utils.stringify(meta.public)) > 0 then
+      z = z .. '. DOI: '
+      if is_empty(meta.flandersqmd.doi) then
+        z = z .. '<h1 class = "missing">!!! Missing flandersqmd.doi !!!</h1>'
+      else
+        local x = pandoc.utils.stringify(meta.flandersqmd.doi)
+        z = z .. '<a href="https://doi.org/' .. x .. '">' .. x .. '</a>'
+      end
     end
     z = z .. '</div>'
 
@@ -314,11 +324,13 @@ return {
           z = z .. '  number = {' .. y .. '(' .. x .. ')},\n'
         end
       end
-      if is_empty(meta.flandersqmd.doi) then
-        z = z .. '<h1 class = "missing">!!! Missing flandersqmd.doi !!!</h1>'
-      else
-        local x = pandoc.utils.stringify(meta.flandersqmd.doi)
-        z = z .. '  doi = {' .. x .. '},\n'
+      if tonumber(pandoc.utils.stringify(meta.public)) > 0 then
+        if is_empty(meta.flandersqmd.doi) then
+          z = z .. '<h1 class = "missing">!!! Missing flandersqmd.doi !!!</h1>'
+        else
+          local x = pandoc.utils.stringify(meta.flandersqmd.doi)
+          z = z .. '  doi = {' .. x .. '},\n'
+        end
       end
       z = z .. '  type = {techreport}\n' .. '}' .. '</pre>\n'
       z = z .. '<pre id = "RIS" style ="display: none;">\n' .. 'TY  - RPRT\n'
@@ -336,7 +348,7 @@ return {
         end
         z = z .. '},\n'
       end
-      if not is_empty(meta.flandersqmd.doi) then
+      if tonumber(pandoc.utils.stringify(meta.public)) > 0 and not is_empty(meta.flandersqmd.doi) then
         local x = pandoc.utils.stringify(meta.flandersqmd.doi)
         z = z .. 'DO  - ' .. x .. '\n'
       end
@@ -350,7 +362,7 @@ return {
         local x = pandoc.utils.stringify(meta.flandersqmd.year)
         z = z .. 'PY  - ' .. x .. '\n'
       end
-      if not is_empty(meta.translation.issn) then
+      if tonumber(pandoc.utils.stringify(meta.public)) > 0 and not is_empty(meta.translation.issn) then
         z = z .. 'SN  - ' .. meta.translation.issn .. '\n'
       end
       z = z .. 'ER  -\n' .. '</pre>'

@@ -9,15 +9,27 @@ return {
       '<img alt="Creative Commons-License" style="border-width:0" class="ccby"/>' ..
       '</a>' .. meta.shortauthor
     if is_empty(meta.flandersqmd.year) then
-      z = z .. '<h1 class = "missing">!!! Missing flandersqmd.year !!!</h1>'
+      z = z .. ' !!! Missing flandersqmd.year !!! '
     else
-      z = z .. ' (' .. pandoc.utils.stringify(meta.flandersqmd.year) .. ')'
+      z = z .. ' (' .. pandoc.utils.stringify(meta.flandersqmd.year) .. ') '
     end
-    if is_empty(meta.flandersqmd.doi) then
-      z = z .. '<h1 class = "missing">!!! Missing flandersqmd.doi !!!</h1>'
+    if tonumber(pandoc.utils.stringify(meta.public)) > 0 then
+      if is_empty(meta.flandersqmd.doi) then
+        z = z .. ' !!! Missing flandersqmd.doi !!! '
+      else
+        local x = pandoc.utils.stringify(meta.flandersqmd.doi)
+        z = z .. '<a href="https://doi.org/' .. x .. '">' .. x .. '</a>'
+      end
     else
-      local x = pandoc.utils.stringify(meta.flandersqmd.doi)
-      z = z .. ' <a href="https://doi.org/' .. x .. '">' .. x .. '</a>'
+      if tonumber(pandoc.utils.stringify(meta.displaycolophon)) > 0 then
+        if is_empty(meta.flandersqmd.reportnr) then
+          z = z .. ' !!! Missing flandersqmd.reportnr !!! '
+        else
+          z = z .. ' ' .. pandoc.utils.stringify(meta.flandersqmd.reportnr) .. ' ' .. os.date("%Y-%m-%d %H:%M:%S")
+        end
+      else
+        z = z .. os.date("%Y-%m-%d %H:%M:%S")
+      end
     end
 
     return pandoc.RawInline("html", z)
