@@ -167,14 +167,18 @@ return {
       meta.colophon_author = colophon_author(meta)
       meta.reviewer = reviewer(meta)
       meta.corresponding = corresponding(meta)
-      meta.client = client(
-        meta.flandersqmd.client, meta.translation.client,
-        meta.flandersqmd.clienturl, meta.flandersqmd.clientlogo
-      )
-      meta.cooperation = client(
-        meta.flandersqmd.cooperation, meta.translation.cooperation,
-        meta.flandersqmd.cooperationurl, meta.flandersqmd.cooperationlogo
-      )
+      if not is_empty(meta.flandersqmd.client) then
+        meta.client = client(
+          meta.flandersqmd.client, meta.translation.client,
+          meta.flandersqmd.clienturl, meta.flandersqmd.clientlogo
+        )
+      end
+      if not is_empty(meta.flandersqmd.cooperation) then
+        meta.cooperation = client(
+          meta.flandersqmd.cooperation, meta.translation.cooperation,
+          meta.flandersqmd.cooperationurl, meta.flandersqmd.cooperationlogo
+        )
+      end
       return meta
     end
   }
