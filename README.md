@@ -27,19 +27,75 @@ This quarto extension builds on the quarto [book format](https://quarto.org/docs
 
 ## Installation
 
+Start by setting up a quarto book project.
+You can find more information on how to do this in the [quarto documentation](https://quarto.org/docs/books/).
 
-## Setup
+Then open the terminal and go the root of your quarto book project.
+Run the command below to install the Quarto extension.
 
-Add the following to your `_quarto.yml` file:
+```
+quarto install extension inbo/flandersqmd-book
+```
+
+Replace the `project:` section in your `_quarto.yml` file with the following code:
+
+```
+project:
+  type: flandersqmd-book
+  preview:
+    port: 4201
+    browser: true
+  render:
+    - "*.md"
+    - "*.qmd"
+    - "!LICENSE.md" #ignore LICENSE.md
+    - "!README.md" #ignore README.md
+  output-dir: output
+```
+
+Replace the `format:` section in your `_quarto.yml` file with the following code:
 
 ```
 format:
-  flandersqmd-book-pdf: default
   flandersqmd-book-html: default
+  flandersqmd-book-pdf: default
 ```
 
-Then specify the `flandersqmd` setting in the `_quarto.yml` file.
+Then specify the `flandersqmd:` section in the `_quarto.yml` file.
 Below is the full list of settings that can be used.
+
+Update the settings in the `book:` section in the `_quarto.yml` file.
+- Remove `title`, `author` and `date` information from the `book:` section.
+- Update the `chapters:` subsection to include the chapters of your report.
+
+```
+book:
+  downloads: pdf
+  open-graph: true
+  sidebar:
+    logo: cover.png
+  body-footer: '{{< footer >}}'
+  navbar:
+    left:
+      - text: Cover
+        file: index.md
+    right:
+      - icon: mastodon
+        href: https://mastodon.online/@inbo
+      - icon: facebook
+        href: https://www.facebook.com/INBOVlaanderen/
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/inbo
+          - text: Report a Bug
+            url:  https://github.com/inbo
+    pinned: true
+```
+
+Add `{{< colophon >}}` to the top of the `index.md` file to include the colophon.
+
+## `flandersqmd` settings
 
 ### Required settings with default values
 
@@ -143,9 +199,33 @@ And a `DRAFT` watermark will appear on every page.
 - `watermark`: A text to display as a watermark on every page.
   Will be appended to the `DRAFT` watermark in case of missing mandatory settings.
 
-### Full example
+## Full example of the `_quarto.yml` file
 
 ```
+project:
+  type: flandersqmd-book
+  preview:
+    port: 4201
+    browser: true
+  render:
+    - "*.md"
+    - "*.qmd"
+    - "!LICENSE.md" #ignore LICENSE.md
+    - "!README.md" #ignore README.md
+  output-dir: output
+
+execute:
+  echo: false
+  freeze: auto
+
+lang: en-GB # nl-BE, fr-FR
+
+bibliography: references.bib
+
+format:
+  flandersqmd-book-html: default
+  flandersqmd-book-pdf: default
+
 flandersqmd:
   entity: INBO
   level: 2
@@ -155,16 +235,16 @@ flandersqmd:
     - name:
         given: Given
         family: Family
-      corresponding: true
       email: given.family@vlaanderen.be
+      corresponding: true
       orcid: 0000-0002-1825-0097
       affiliation:
         - Government of Flanders
     - name:
         given: Second
         family: Author
-      corresponding: true
       email: second.author@vlaanderen.be
+      corresponding: true
       orcid: 0000-0002-1825-0097
       affiliation:
         - Government of Flanders
@@ -191,7 +271,7 @@ flandersqmd:
   ordernr: optional order number
   depotnr: optional depot number
   doi: 10.5281/zenodo.842223
-  watermark: test
+  watermark: This is a watermark
   public_report: true
   colophon: true
   client:
@@ -208,4 +288,64 @@ flandersqmd:
     - 1000 Brussel
   cooperationurl: https://www.vlaanderen.be/inbo/en-gb
   cooperationlogo: logo.jpg
+
+book:
+  downloads: pdf
+  open-graph: true
+  sidebar:
+    logo: cover.png
+  body-footer: '{{< footer >}}'
+  chapters:
+    - index.md
+    - samenvatting.md
+    - resume.md
+    - recommendations.qmd
+    - introduction.md
+    - part: Typography
+      chapters:
+        - headings.qmd
+        - fonts.qmd
+        - lists.qmd
+        - boxes.qmd
+    - part: Other elements
+      chapters:
+        - crossreference.md
+        - static-figure.md
+        - static-table.md
+        - equations.md
+        - citations.md
+        - language.md
+    - part: Code generated content
+      chapters:
+        - code.qmd
+        - code-figure.qmd
+        - code-table.qmd
+        - references.md
+  appendices:
+    - appendix-first.qmd
+    - appendix-second.qmd
+  navbar:
+    left:
+      - text: Cover
+        file: index.md
+      - text: Typography
+        file: headings.qmd
+      - text: Other elements
+        file: crossreference.md
+      - text: Code
+        file: code.qmd
+      - text: Appendices
+        file: appendix-first.qmd
+    right:
+      - icon: mastodon
+        href: https://mastodon.online/@inbo
+      - icon: facebook
+        href: https://www.facebook.com/INBOVlaanderen/
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/inbo
+          - text: Report a Bug
+            url:  https://github.com/inbo
+    pinned: true
 ```
