@@ -20,5 +20,6 @@ license: CC-BY-4.0
 repository-code: https://github.com/inbo/flandersqmd-book/
 type: software
 abstract: "This quarto extension builds on the quarto [book format](https://quarto.org/docs/books/)
-  and provides the corporate identity of the Flemish government for reports."
+  and provides the corporate identity of the Flemish government for reports.\nA full
+  example is available on the [GitHub repo](https://github.io/inbo/flandersqmd-book/)."
 version: 0.1.0

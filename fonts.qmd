@@ -1,0 +1,93 @@
+# Fonts
+
+This chapters displays the different fonts and their shapes.
+Partly to visualise them, partly to highlight problems with specific combinations of characters.
+
+```{r}
+#| label: setup
+library(lipsum)
+set.seed(20200817)
+header <- function(words = 4, format = FALSE) {
+  sprintf(
+    ifelse(
+      format,
+      "%s '%s' `%s` _%s_ **%s**",
+      "%s %s %s %s %s"
+    ),
+    lipsum::sentence(words = words),
+    lipsum::sentence(words = words),
+    lipsum::sentence(words = words),
+    lipsum::sentence(words = words),
+    lipsum::sentence(words = words)
+  )
+}
+```
+
+## Normal
+
+ABCDEFHIJKLMNOPQRSTUVWXYZ abcdefghijklmonopqrstuvwxyz €$£ @&#§µ^ ()|²³<>/\_*+- ,;:.?!~ äàáâã ëèéê ïìíî öòóô üùúû ÿ ç ñ ÄÀÁÂ ËÈÉÊ ÏÌÍÎ ÖÒÓÔ ÜÙÚÛ Ñ 0123456789 <!-- spell-check: ignore-->
+
+`r paragraph(n = 1)`
+
+quotation marks: "double", 'single'
+
+## Bold
+
+**ABCDEFHIJKLMNOPQRSTUVWXYZ abcdefghijklmonopqrstuvwxyz €$£ @&#§µ^ ()[]{}|²³<>/\\\_\*+- ,;:.?!~ äàáâã ëèéê ïìíî öòóô üùúû ÿ ç ñ ÄÀÁÂ ËÈÉÊ ÏÌÍÎ ÖÒÓÔ ÜÙÚÛ Ñ 0123456789** <!-- spell-check: ignore-->
+
+**`r paragraph(n = 1)`**
+
+**quotation marks: "double", 'single'**
+
+## Italics
+
+_ABCDEFHIJKLMNOPQRSTUVWXYZ abcdefghijklmonopqrstuvwxyz €$£ @&#§µ^ ()[]{}|²³<>/\\\_\*+- ,;:.?!~ äàáâã ëèéê ïìíî öòóô üùúû ÿ ç ñ ÄÀÁÂ ËÈÉÊ ÏÌÍÎ ÖÒÓÔ ÜÙÚÛ Ñ 0123456789_ <!-- spell-check: ignore-->
+
+_`r paragraph(n = 1)`_
+
+_quotation marks: "double", 'single'_
+
+## Bold italics {#sec-bold-italic}
+
+**_ABCDEFHIJKLMNOPQRSTUVWXYZ abcdefghijklmonopqrstuvwxyz €$£ @&#§µ^ ()[]{}|²³<>/\\\_\*+- ,;:.?!~ äàáâã ëèéê ïìíî öòóô üùúû ÿ ç ñ ÄÀÁÂ ËÈÉÊ ÏÌÍÎ ÖÒÓÔ ÜÙÚÛ Ñ 0123456789_** <!-- spell-check: ignore-->
+
+_**`r paragraph(n = 1)`**_
+
+_**quotation marks: "double", 'single'**_
+
+## Fixed width font
+
+```{r}
+#| label: fixed-plain
+#| results: "asis"
+cat("`", paragraph(), "`", sep = "")
+```
+
+`quotation marks: "double", 'single'`
+
+```{r}
+#| label: fixed-bold
+#| results: "asis"
+cat("**`", paragraph(), "`**", sep = "")
+```
+
+**`quotation marks: "double", 'single'`**
+
+80 characters fit within the margins of the pdf
+
+`12345678911234567892123456789312345678941234567895123456789612345678971234567898`
+
+**`12345678911234567892123456789312345678941234567895123456789612345678971234567898`**
+
+100 characters no longer fit on the pdf page
+
+`1234567891123456789212345678931234567894123456789512345678961234567897123456789812345678991234567890`
+
+**`1234567891123456789212345678931234567894123456789512345678961234567897123456789812345678991234567890`**
+
+## Distinguish similar looking characters
+
+|                            | normal | bold | italics | bold italic | fixed width |
+| ---------------------------| --- | --- | --- | --------- | --------- |
+| small L versus capital i   | lI | **lI** | _lI_ | **_lI_** | `lI` **`lI`** | <!-- spell-check: ignore-->
+| capital O versus number 0  | O0 | **O0** | _O0_ | **_O0_** | `O0` **`O0`** |

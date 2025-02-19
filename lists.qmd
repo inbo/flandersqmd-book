@@ -1,0 +1,68 @@
+# Lists
+
+```{r}
+#| label: setup
+library(lipsum)
+set.seed(20200819)
+```
+
+## Unordered list
+
+- `r paragraph()`
+- Item 2
+- Item 3
+    - Item a
+        - item I
+        - item II
+            - item A
+            - item B
+            - `r paragraph()`
+        - `r paragraph()`
+    - `r paragraph()`
+    - Item c
+- Item 4
+
+## Numbered list
+
+1. `r paragraph()`
+1. Item 2
+1. Item 3
+    1. Item a
+        1. item I
+        1. item II
+            1. `r paragraph()`
+            1. item B
+            1. item C
+        1. `r paragraph()`
+    1. `r paragraph()`
+    1. Item c
+1. Item 4
+
+## Definition list
+
+Item A
+  ~ `r paragraph()`
+  
+Longer item title B
+  ~ `r paragraph()`
+  
+    Item B1
+      ~ `r paragraph()`
+
+        Item B1a
+          ~ `r paragraph()`
+
+        Item B1b
+          ~ `r paragraph()`
+
+            Item B1b1
+              ~ `r paragraph()`
+              
+    Item B2
+      ~ `r paragraph()`
+
+Item C
+  ~ `r paragraph()`
+  
+Item D
+  ~ `r paragraph()`

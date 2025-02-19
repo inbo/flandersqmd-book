@@ -1,0 +1,146 @@
+project:
+  type: flandersqmd-book
+  preview:
+    port: 4201
+    browser: true
+  render:
+    - "*.md"
+    - "*.qmd"
+    - "!LICENSE.md" #ignore LICENSE.md
+    - "!README.md" #ignore README.md
+  output-dir: output
+
+execute:
+  echo: false
+  freeze: auto
+
+lang: en-GB # nl-BE, fr-FR
+
+bibliography: references.bib
+
+format:
+  flandersqmd-book-html: default
+  flandersqmd-book-pdf: default
+
+flandersqmd:
+  entity: INBO
+  level: 2
+  title: Title for the example website
+  subtitle: The optional subtitle
+  author:
+    - name:
+        given: Given
+        family: Family
+      email: given.family@vlaanderen.be
+      corresponding: true
+      orcid: 0000-0002-1825-0097
+      affiliation:
+        - Government of Flanders
+    - name:
+        given: Second
+        family: Author
+      email: second.author@vlaanderen.be
+      corresponding: true
+      orcid: 0000-0002-1825-0097
+      affiliation:
+        - Government of Flanders
+    - name:
+        given: Third
+        family: Author
+      email: third.author@vlaanderen.be
+      orcid: 0000-0002-1825-0097
+      affiliation:
+        - Government of Flanders
+  reviewer:
+    - name:
+        given: First
+        family: Reviewer
+      email: reviewer@vlaanderen.be
+      orcid: 0000-0002-1825-0097
+      affiliation:
+        - Government of Flanders
+  year: 9999
+  reportnr: 3.14
+  cover: cover.pdf
+  coverphoto: https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227
+  coverdescription: Detail of a leaf. Photo by [Skyler Ewing](https://www.pexels.com/nl-nl/@skyler-ewing-266953?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) via [Pexels](https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
+  ordernr: optional order number
+  depotnr: optional depot number
+  doi: 10.5281/zenodo.842223
+  watermark: This is a watermark
+  public_report: true
+  colophon: true
+  client:
+    - INBO Brussel
+    - VAC Brussel ‐ Herman Teirlinck
+    - Havenlaan 88 bus 73
+    - 1000 Brussel
+  clienturl: https://www.vlaanderen.be/inbo/en-gb
+  clientlogo: logo.jpg
+  cooperation:
+    - INBO Brussel
+    - VAC Brussel ‐ Herman Teirlinck
+    - Havenlaan 88 bus 73
+    - 1000 Brussel
+  cooperationurl: https://www.vlaanderen.be/inbo/en-gb
+  cooperationlogo: logo.jpg
+
+book:
+  downloads: pdf
+  open-graph: true
+  sidebar:
+    logo: cover.png
+  body-footer: '{{< footer >}}'
+  chapters:
+    - index.md
+    - samenvatting.md
+    - resume.md
+    - recommendations.qmd
+    - introduction.md
+    - part: Typography
+      chapters:
+        - headings.qmd
+        - fonts.qmd
+        - lists.qmd
+        - boxes.qmd
+    - part: Other elements
+      chapters:
+        - crossreference.md
+        - static-figure.md
+        - static-table.md
+        - equations.md
+        - citations.md
+        - language.md
+    - part: Code generated content
+      chapters:
+        - code.qmd
+        - code-figure.qmd
+        - code-table.qmd
+        - references.md
+  appendices:
+    - appendix-first.qmd
+    - appendix-second.qmd
+  navbar:
+    left:
+      - text: Cover
+        file: index.md
+      - text: Typography
+        file: headings.qmd
+      - text: Other elements
+        file: crossreference.md
+      - text: Code
+        file: code.qmd
+      - text: Appendices
+        file: appendix-first.qmd
+    right:
+      - icon: mastodon
+        href: https://mastodon.online/@inbo
+      - icon: facebook
+        href: https://www.facebook.com/INBOVlaanderen/
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/inbo
+          - text: Report a Bug
+            url:  https://github.com/inbo
+    pinned: true

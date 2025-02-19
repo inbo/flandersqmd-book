@@ -1,0 +1,9 @@
+# Title of second appendix
+
+```{r}
+#| label: setup
+library(lipsum)
+set.seed(20220831)
+```
+
+`r paragraph(n = 5)`

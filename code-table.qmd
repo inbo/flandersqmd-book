@@ -1,0 +1,74 @@
+# R tables
+
+```{r}
+#| label: setup
+library(knitr)
+set.seed(20220823)
+# functions to generate tables
+digit_table <- function(rows = 20, cols = 10) {
+  data.frame(
+    matrix(rnorm(rows * cols), nrow = rows, ncol = cols),
+    row.names = paste("row", seq_len(rows))
+  )
+}
+random_word <- function(n_letters = 5){
+  paste(sample(letters, size = n_letters, replace = TRUE), collapse = "")
+}
+random_sentence <- function(words = 10, n_letters = 10) {
+  paste(
+    vapply(
+      rpois(words, n_letters), FUN = random_word, FUN.VALUE = character(1)
+    ),
+    collapse = " "
+  )
+}
+text_table <- function(rows = 20, cols = 10, words = 10, n_letters = 5) {
+  x <- data.frame(
+    matrix(
+      sapply(
+        rpois(rows * cols, lambda = words), 
+        random_sentence,
+        n_letters
+      ),
+      nrow = rows,
+      ncol = cols
+    )
+  )
+  colnames(x) <- head(LETTERS, cols)
+  return(x)
+}
+generate_table <- function(
+    rows = 20, cols = c(5, 5), words = 10, n_letters = 5
+) {
+  cbind(
+    digit_table(rows = rows, cols = cols[1]),
+    text_table(
+      rows = rows, cols = cols[2], words = words, n_letters = n_letters
+    )
+  )
+}
+```
+
+## `kable()`
+
+```{r}
+#| label: tbl-style-default
+#| tbl-cap: Default `kable()` output.
+kable(
+  generate_table(50, c(4, 2), 4, 4)
+)
+```
+
+```{r kable-markdown}
+kable(
+  generate_table(20, c(4, 3), 5, 4), digits = 2, format = "markdown",
+  caption = "markdown style output of kable {#tbl-style-markdown}"
+)
+```
+
+```{r kable-pandoc}
+kable(
+  generate_table(50, c(3, 1), 4, 4), digits = 3, format = "pandoc",
+  caption = "pandoc style output of `kable()` {#tbl-style-pandoc}",
+)
+```

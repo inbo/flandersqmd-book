@@ -20,3 +20,15 @@ docs
 libs
 output
 renv/library
+/.quarto/
+/_freeze
+/cc-by.eps
+/flanders-state-art.pdf
+/flandersqmd-book.tex
+/inbo-logo.pdf
+/orcid.eps
+/report-generic.sty
+/report-language.sty
+/site_libs
+/vlaamse-overheid.pdf
+/vlaanderen-wetenschap.pdf

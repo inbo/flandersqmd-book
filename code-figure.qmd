@@ -1,0 +1,66 @@
+---
+knitr:
+  opts_chunk:
+    message: false
+---
+
+# R figures
+
+```{r}
+#| label: setup
+library(ggplot2)
+library(INBOtheme)
+theme_set(theme_vlaanderen2015(base_size = 10))
+switch_colour(vl_darkyellow)
+```
+
+## Inline figure
+
+```{r}
+#| label: gg-mtcars
+#| warning: false
+ggplot(
+  mtcars, 
+  aes(x = wt, y = mpg, colour = factor(cyl), fill = factor(cyl))
+) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+## Floating figure
+
+Requires the `fig.cap` argument to be set.
+Use `label` with `fig-` prefix.
+Otherwise the cross references don't work.
+
+```{r}
+#| label: fig-movie
+#| fig.cap: "Distribution of esophageal cancer in Ille-et-Villaine, France."
+ggplot(esoph, aes(x = ncases / (ncases + ncontrols))) + 
+  geom_histogram() + 
+  facet_wrap(~agegp, scales = "free")
+```
+
+```{r}
+#| label: fig-diamond
+#| fig.cap: !expr paste("Code", "generated caption.")
+#| fig.width: 6
+#| fig.height: 4
+ggplot(diamonds, aes(x = price, fill = cut)) + 
+  geom_histogram()
+```
+
+```{r}
+#| label: fig-gg-mtcars1
+#| fig.cap: "Fuel consumption for 1974 cars in miles per gallon.
+#| Caption can span multiple lines in the code.
+#| They may contain _Markdown_ `syntax`.
+#| Reserved LaTex characters (&, %, \\) are OK."
+#| dev: "png"
+ggplot(
+  mtcars, 
+  aes(x = wt, y = mpg, colour = factor(cyl), fill = factor(cyl))
+) +
+  geom_point() + 
+  geom_smooth(method = "lm") 
+```

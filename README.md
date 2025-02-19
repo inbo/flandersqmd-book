@@ -23,6 +23,7 @@ Research Institute for Nature and Forest (INBO)[^cph][^fnd]
 
 <!-- description: start -->
 This quarto extension builds on the quarto [book format](https://quarto.org/docs/books/) and provides the corporate identity of the Flemish government for reports.
+A full example is available on the [GitHub repo](https://github.io/inbo/flandersqmd-book/).
 <!-- description: end -->
 
 ## Installation

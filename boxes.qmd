@@ -1,0 +1,59 @@
+# Boxes
+
+```{r}
+#| label: setup
+library(lipsum)
+set.seed(20200821)
+```
+
+:::{.callout-note}
+Note that there are five types of call outs, including:
+`note`, `warning`, `important`, `tip`, and `caution`.
+:::
+
+:::{.callout-note}
+## Caption
+
+`r paragraph(n = 1)`
+:::
+
+:::{.callout-tip}
+`r paragraph(n = 1)`
+:::
+
+:::{.callout-tip}
+## Caption
+
+`r paragraph(n = 1)`
+:::
+
+:::{.callout-caution}
+`r paragraph(n = 1)`
+:::
+
+:::{.callout-caution collapse="true"}
+## Expand to learn about collapse
+
+This is an example of a 'folded' caution call out that can be expanded by the user.
+You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible call out that is expanded by default.
+:::
+
+:::{.callout-important}
+`r paragraph(n = 1)`
+:::
+
+:::{.callout-important}
+## Caption
+
+`r paragraph(n = 1)`
+:::
+
+:::{.callout-warning}
+`r paragraph(n = 1)`
+:::
+
+:::{.callout-warning}
+## Caption
+
+`r paragraph(n = 1)`
+:::

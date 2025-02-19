@@ -1,0 +1,107 @@
+```{r}
+library(lipsum) 
+set.seed(20200818)
+header <- function(words = 4, format = FALSE) {
+  sprintf(
+    ifelse(
+      format,
+      "%s '%s' `%s` _%s_",
+      "%s %s %s %s"
+    ),
+    lipsum::sentence(words = words),
+    lipsum::sentence(words = words),
+    lipsum::sentence(words = words),
+    lipsum::sentence(words = words)
+  )
+}
+```
+
+# Headings: level 1: `r header(4)`
+
+`r paragraph(n = 3)`
+
+## Level 2: `r header(4)`
+
+`r paragraph(n = 3)`
+
+### Level 3: `r header(4)` {#sec-heading-3}
+
+`r paragraph(n = 3)`
+
+#### Level 4: `r header(5)` {#sec-heading-4}
+
+`r paragraph(n = 3)`
+
+##### Level 5: `r header(4)` {#sec-heading-5}
+
+`r paragraph(n = 3)`
+
+###### Level 6: `r header(4)` {#sec-heading-6}
+
+`r paragraph(n = 3)`
+
+# Heading without number: level 1: `r header(4)` {.unnumbered}
+
+`r paragraph(n = 3)`
+
+## Level 2: `r header(4)` {.unnumbered}
+
+`r paragraph(n = 3)`
+
+### Level 3: `r header(4)` {.unnumbered}
+
+`r paragraph(n = 3)`
+
+#### Level 4: `r header(5)` {.unnumbered}
+
+`r paragraph(n = 3)`
+
+Unnumbered headers are available from level 1 until 4.
+
+# Headings with formatting: level 1: `r header(4, TRUE)`
+
+Note that line wrapping fails in the pdf output on long level 2 and 4 heading with formatting.
+Use shorter title to work around this issue.
+
+`r paragraph(n = 3)`
+
+## Level 2: `r header(4, TRUE)`
+
+`r paragraph(n = 3)`
+
+### Level 3: `r header(4, TRUE)`
+
+`r paragraph(n = 3)`
+
+#### Level 4: `r header(5, TRUE)`
+
+`r paragraph(n = 3)`
+
+##### Level 5: `r header(4, TRUE)`
+
+`r paragraph(n = 3)`
+
+###### Level 6: `r header(4, TRUE)`
+
+`r paragraph(n = 3)`
+
+# Heading without number and formatting: level 1: `r header(4, TRUE)` {.unnumbered}
+
+Note that line wrapping fails in the pdf output on long level 2 and 4 heading with formatting.
+Use shorter title to work around this issue.
+
+`r paragraph(n = 3)`
+
+## Level 2: `r header(4, TRUE)` {.unnumbered}
+
+`r paragraph(n = 3)`
+
+### Level 3: `r header(4, TRUE)` {.unnumbered}
+
+`r paragraph(n = 3)`
+
+#### Level 4: `r header(5, TRUE)` {.unnumbered}
+
+`r paragraph(n = 3)`
+
+Unnumbered headers are available from level 1 until 4.

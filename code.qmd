@@ -1,0 +1,45 @@
+# Display R code
+
+```{r code}
+#| label: datasets
+#| echo: TRUE
+#| error: TRUE
+#| message: TRUE
+# logical
+c(TRUE, FALSE)
+# integer
+0:1
+# numeric
+c(0.0, 1.1)
+# scientific
+c(1e-10, 1e10)
+# character
+c("Monday", "Tuesday", "Wednesday")
+# factor
+factor(c("Monday", "Tuesday", "Wednesday"))
+# function
+my_fun <- function(x){
+  cat("my function is", x)
+}
+# data.frame
+state <- data.frame(
+  region = state.region,
+  Division = state.division,
+  state.x77
+)
+# function
+my_fun(x = "cool")
+# messages
+message("this is a message")
+warning("this is a warning")
+stop("this is an error message")
+# programma flow
+if (is.data.frame(state)) {
+  summary(state)
+} else {
+  stop("state is not a data.frame")
+}
+for (i in 1:5) {
+  cat("i =", i, "\n")
+}
+```
