@@ -1,0 +1,37 @@
+{
+  "access_right": "open",
+  "title": "Quarto extension providing the corporate identity of the Flemish government for reports",
+  "version": "0.1.0",
+  "description": "<p>This quarto extension builds on the quarto <a href=\"https://quarto.org/docs/books/\">book format<\/a> and provides the corporate identity of the Flemish government for reports.<\/p>",
+  "keywords": [
+    "quarto",
+    "corporate identity"
+  ],
+  "upload_type": "software",
+  "license": "CC-BY-4.0",
+  "language": "eng",
+  "contributors": [
+    {
+      "name": "Onkelinx, Thierry",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0001-8804-4216",
+      "type": "contactperson"
+    },
+    {
+      "name": "Research Institute for Nature and Forest (INBO)",
+      "type": "rightsholder"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Onkelinx, Thierry",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0001-8804-4216"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "inbo"
+    }
+  ]
+}

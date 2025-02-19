@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: "Quarto extension providing the corporate identity of the Flemish government
+  for reports"
+authors:
+- given-names: Thierry
+  family-names: Onkelinx
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0001-8804-4216
+keywords:
+- quarto
+- corporate identity
+contact:
+- given-names: Thierry
+  family-names: Onkelinx
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0001-8804-4216
+doi: ~
+license: CC-BY-4.0
+repository-code: https://github.com/inbo/flandersqmd-book/
+type: software
+abstract: "This quarto extension builds on the quarto [book format](https://quarto.org/docs/books/)
+  and provides the corporate identity of the Flemish government for reports."
+version: 0.1.0

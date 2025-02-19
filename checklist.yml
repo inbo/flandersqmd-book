@@ -1,0 +1,20 @@
+description: Configuration file for checklist::check_pkg()
+package: no
+allowed:
+  warnings: []
+  notes:
+  - motivation: No DOI yet
+    value: no DOI badge found in README.md
+  - motivation: No website yet
+    value: no website badge found in README.md
+required:
+- CITATION
+- checklist
+- filename conventions
+- license
+- spelling
+spelling:
+  default: en-GB
+  ignore:
+  - .github
+  - LICENSE.md
