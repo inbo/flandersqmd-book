@@ -7,7 +7,7 @@ return {
 
     z = '<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">' ..
       '<img alt="Creative Commons-License" style="border-width:0" class="ccby"/>' ..
-      '</a>' .. meta.shortauthor
+      '</a> '.. meta.shortauthor
     if is_empty(meta.flandersqmd.year) then
       z = z .. ' !!! Missing flandersqmd.year !!! '
     else

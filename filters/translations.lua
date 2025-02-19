@@ -149,6 +149,9 @@ function abbreviate_person(person, i, type, n)
 end
 
 function shortauthor(author)
+  if is_empty(author) then
+    return '!!! Missing flandersqmd.author !!!'
+  end
   n = 0
   for i, person in pairs(author) do
     n = i
@@ -249,15 +252,8 @@ return {
       end
       meta.entitycss = levelcss(meta.entitycolours)
       meta.watermark = watermark(pandoc.utils.stringify(meta.lang), meta.flandersqmd)
-      if is_empty(meta.flandersqmd.author) then
-        meta.shortauthor = pandoc.RawInline(
-          "html",
-          '<h1 class = "missing">!!! Missing flandersqmd.author !!!</h1>'
-        )
-      else
-        meta.shortauthor = shortauthor(meta.flandersqmd.author)
-        meta.ccby = pandoc.RawInline("latex", meta.translation.ccby)
-      end
+      meta.shortauthor = shortauthor(meta.flandersqmd.author)
+      meta.ccby = pandoc.RawInline("latex", meta.translation.ccby)
       if is_empty(meta.flandersqmd.doi) then
         if not is_empty(meta.flandersqmd.reportnr) then
           meta.displaycolophon = 1
