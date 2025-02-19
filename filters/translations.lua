@@ -30,6 +30,7 @@ function translation_entity(result, lang, entity)
       result.url = "https://www.vlaanderen.be/inbo/en-gb/homepage/"
       result.url_text = "vlaanderen.be/inbo"
     end
+    result.email = "info@inbo.be"
     result.issn_nr = "1782-9054"
     result.vu_name = "Hilde Eggermont"
   else

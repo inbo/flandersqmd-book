@@ -136,6 +136,10 @@ local function corresponding(meta)
     for i, person in pairs(meta.flandersqmd.author) do
       z = z .. corresponding_person(person, i, 'author')
     end
+    if z == '' then
+      x = meta.translation.email
+      z = '\\href{mailto:' .. x .. '}{' .. x .. '} '
+    end
   end
   return pandoc.RawInline("latex", z)
 end
