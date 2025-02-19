@@ -211,7 +211,7 @@ function watermark(lang, flandersqmd)
   if not is_empty(flandersqmd.watermark) then
     result = pandoc.utils.stringify(flandersqmd.watermark)
   end
-  if not (is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer) or is_empty(flandersqmd.reportnr)) and (not flandersqmd.public_report or (not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr)))) then
+  if not (is_empty(flandersqmd.title) or is_empty(flandersqmd.author) or is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer) or is_empty(flandersqmd.reportnr)) and (not flandersqmd.public_report or (not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr)))) then
     return result
   end
   if (lang == "nl-BE") then
