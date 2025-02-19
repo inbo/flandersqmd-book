@@ -134,7 +134,9 @@ local function corresponding(meta)
   else
     z = ''
     for i, person in pairs(meta.flandersqmd.author) do
-      z = z .. corresponding_person(person, i, 'author')
+      if z == '' then
+        z = corresponding_person(person, i, 'author')
+      end
     end
     if z == '' then
       x = meta.translation.email
