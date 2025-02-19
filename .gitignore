@@ -4,7 +4,6 @@
 *.gddoc
 *.gdsheet
 *.gpkg
-*.html
 *.mdb
 *.shp*
 *.shx
