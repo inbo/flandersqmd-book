@@ -32,7 +32,8 @@ A full example is available on the [GitHub repo](https://github.io/inbo/flanders
 You can find more information on how to do this in the [quarto documentation](https://quarto.org/docs/books/).
 
 **2.** Then open the terminal and go the root of your quarto book project.
-Run the command below to install the Quarto extension.
+Run the command below to install the quarto extension and confirm when prompted.
+Once installed, you can optionally view the documentation in your browser.
 
 ```
 quarto install extension inbo/flandersqmd-book
