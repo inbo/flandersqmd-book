@@ -213,12 +213,12 @@ You can render your quarto report in two main ways:
 2. **Using the Terminal**  
    - Open your quarto book project in RStudio.
    - Run the following command in the terminal:  
-     ```
+     ```sh
      quarto render
      ```  
      This renders the book and saves it to disk like the **Render Book** button of the **Build** tab.
    - If you want to preview the HTML format, you can run:
-     ```
+     ```sh
      quarto preview
      ```  
      This renders the book and starts a live preview, automatically updating the output when changes are detected.
