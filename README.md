@@ -200,6 +200,29 @@ And a `DRAFT` watermark will appear on every page.
 - `watermark`: A text to display as a watermark on every page.
   Will be appended to the `DRAFT` watermark in case of missing mandatory settings.
 
+## Render your quarto report
+
+You can render your quarto report in two main ways:  
+
+1. **Using RStudio's Build Pane**  
+   - Open your quarto book project in RStudio.
+   - Click on the **Build** tab (usually found in the top-right panel).  
+   - Click **Render Book** to generate all formats. You can click on the down arrow next to the **Render Book** button to render only a specific format. If no `flandersqmd-book` format is available, restart your quarto book project and try again.
+   - The output format is saved to disk.
+
+2. **Using the Terminal**  
+   - Open your quarto book project in RStudio.
+   - Run the following command in the terminal:  
+     ```
+     quarto render
+     ```  
+     This renders the book and saves it to disk like the **Render Book** button of the **Build** tab.
+   - If you want to preview the HTML format, you can run:
+     ```
+     quarto preview
+     ```  
+     This renders the book and starts a live preview, automatically updating the output when changes are detected.
+
 ## Full example of the `_quarto.yml` file
 
 ```
