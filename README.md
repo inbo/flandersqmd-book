@@ -28,17 +28,17 @@ A full example is available on the [GitHub repo](https://github.io/inbo/flanders
 
 ## Installation
 
-Start by setting up a quarto book project.
+**1.** Start by setting up a quarto book project.
 You can find more information on how to do this in the [quarto documentation](https://quarto.org/docs/books/).
 
-Then open the terminal and go the root of your quarto book project.
+**2.** Then open the terminal and go the root of your quarto book project.
 Run the command below to install the Quarto extension.
 
 ```
 quarto install extension inbo/flandersqmd-book
 ```
 
-Replace the `project:` section in your `_quarto.yml` file with the following code:
+**3.** Replace the `project:` section in your `_quarto.yml` file with the following code:
 
 ```
 project:
@@ -54,7 +54,7 @@ project:
   output-dir: output
 ```
 
-Replace the `format:` section in your `_quarto.yml` file with the following code:
+**4.** Replace the `format:` section in your `_quarto.yml` file with the following code:
 
 ```
 format:
@@ -62,10 +62,10 @@ format:
   flandersqmd-book-pdf: default
 ```
 
-Then specify the `flandersqmd:` section in the `_quarto.yml` file.
-Below is the full list of settings that can be used.
+**5.** Then specify the `flandersqmd:` section in the `_quarto.yml` file.
+[Below](#flandersqmd-settings) is the full list of settings that can be used.
 
-Update the settings in the `book:` section in the `_quarto.yml` file.
+**6.** Update the settings in the `book:` section in the `_quarto.yml` file.
 - Remove `title`, `author` and `date` information from the `book:` section.
 - Update the `chapters:` subsection to include the chapters of your report.
 
@@ -94,7 +94,7 @@ book:
     pinned: true
 ```
 
-Add `{{< colophon >}}` to the top of the `index.md` file to include the colophon.
+**7.** Add `{{< colophon >}}` to the top of the `index.md` file to include the colophon.
 
 ## `flandersqmd` settings
 
