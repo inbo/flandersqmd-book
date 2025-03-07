@@ -208,14 +208,21 @@ You can render your quarto report in two main ways:
 1. **Using RStudio's Build Pane**  
    - Open your quarto book project in RStudio.
    - Click on the **Build** tab (usually found in the top-right panel).  
-   - Click **Render Book** to generate all formats. You can click on the down arrow next to the **Render Book** button to render only a specific format. If no `flandersqmd-book` format is available, restart your quarto book project and try again.
+   - Click **Render Book** to generate all formats.
+     You can click on the down arrow next to the **Render Book** button to render only a specific format.
+     If no `flandersqmd-book` format is available, restart your quarto book project and try again.
    - The output format is saved to disk.
 
 2. **Using the Terminal**  
-   - Open your quarto book project in RStudio.
+   - Open a terminal and navigate to the folder of your quarto book
    - Run the following command in the terminal:  
      ```sh
+    # render all formats
      quarto render
+     # render only the html format
+     quarto render --to flandersqmd-book-html
+     # render only the pdf format
+     quarto render --to flandersqmd-book-pdf
      ```  
      This renders the book and saves it to disk like the **Render Book** button of the **Build** tab.
    - If you want to preview the HTML format, you can run:
