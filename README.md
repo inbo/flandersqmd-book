@@ -215,21 +215,20 @@ You can render your quarto report in two main ways:
 
 2. **Using the Terminal**  
    - Open a terminal and navigate to the folder of your quarto book
-   - Run the following command in the terminal:  
-     ```sh
-    # render all formats
-     quarto render
-     # render only the html format
-     quarto render --to flandersqmd-book-html
-     # render only the pdf format
-     quarto render --to flandersqmd-book-pdf
-     ```  
+   - Run the commands below in the terminal.
      This renders the book and saves it to disk like the **Render Book** button of the **Build** tab.
-   - If you want to preview the HTML format, you can run:
-     ```sh
-     quarto preview
-     ```  
-     This renders the book and starts a live preview, automatically updating the output when changes are detected.
+     Preview renders the book and starts a live preview, automatically updating the output when changes are detected.
+
+```sh
+# render all formats
+quarto render
+# render only the html format
+quarto render --to flandersqmd-book-html
+# render only the pdf format
+quarto render --to flandersqmd-book-pdf
+# preview the html format
+quarto preview
+```  
 
 ## Full example of the `_quarto.yml` file
 
