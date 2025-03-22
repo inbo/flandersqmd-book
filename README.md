@@ -43,7 +43,7 @@ quarto install extension inbo/flandersqmd-book
 
 ```
 project:
-  type: flandersqmd-book
+  type: book
   preview:
     port: 4201
     browser: true
@@ -234,7 +234,7 @@ quarto preview
 
 ```
 project:
-  type: flandersqmd-book
+  type: book
   preview:
     port: 4201
     browser: true

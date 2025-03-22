@@ -1,5 +1,5 @@
 project:
-  type: flandersqmd-book
+  type: book
   preview:
     port: 4201
     browser: true
