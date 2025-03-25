@@ -23,7 +23,8 @@ Research Institute for Nature and Forest (INBO)[^cph][^fnd]
 
 <!-- description: start -->
 This quarto extension builds on the quarto [book format](https://quarto.org/docs/books/) and provides the corporate identity of the Flemish government for reports.
-A full example is available on the [GitHub repo](https://github.io/inbo/flandersqmd-book/).
+A full example is available in the `source` folder in the [GitHub repo](https://github.com/inbo/flandersqmd-book/).
+Visit https://inbo.github.io/flandersqmd-book/ to view the rendered version of the example.
 <!-- description: end -->
 
 ## Installation
@@ -75,7 +76,7 @@ book:
   downloads: pdf
   open-graph: true
   sidebar:
-    logo: cover.png
+    logo: media/cover.png
   body-footer: '{{< footer >}}'
   navbar:
     left:
@@ -296,7 +297,7 @@ flandersqmd:
         - Government of Flanders
   year: 9999
   reportnr: 3.14
-  cover: cover.pdf
+  cover: media/cover.pdf
   coverphoto: https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227
   coverdescription: Detail of a leaf. Photo by [Skyler Ewing](https://www.pexels.com/nl-nl/@skyler-ewing-266953?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) via [Pexels](https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
   ordernr: optional order number
@@ -311,20 +312,20 @@ flandersqmd:
     - Havenlaan 88 bus 73
     - 1000 Brussel
   clienturl: https://www.vlaanderen.be/inbo/en-gb
-  clientlogo: logo.jpg
+  clientlogo: media/logo.jpg
   cooperation:
     - INBO Brussel
     - VAC Brussel ‐ Herman Teirlinck
     - Havenlaan 88 bus 73
     - 1000 Brussel
   cooperationurl: https://www.vlaanderen.be/inbo/en-gb
-  cooperationlogo: logo.jpg
+  cooperationlogo: media/logo.jpg
 
 book:
   downloads: pdf
   open-graph: true
   sidebar:
-    logo: cover.png
+    logo: media/cover.png
   body-footer: '{{< footer >}}'
   chapters:
     - index.md

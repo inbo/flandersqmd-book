@@ -41,7 +41,7 @@ Instead use the explicit markdown syntax like [http://www.inbo.be](http://www.in
 
 ### Figure {#sec-level-3}
 
-![Figure caption with reference anchor](kohlrabi-2266665-klein.jpg){#fig-static-1}
+![Figure caption with reference anchor](media/kohlrabi-2266665-klein.jpg){#fig-static-1}
 
 #### Tables {#sec-level-4}
 
