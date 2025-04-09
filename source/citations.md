@@ -1,3 +1,6 @@
+---
+toc: false
+---
 # Citing literature
 
 ## Inline style

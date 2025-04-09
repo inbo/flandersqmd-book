@@ -1,2 +1,7 @@
 /.quarto/
 _freeze
+/*.eps
+/*.pdf
+/*.sty
+/*.tex
+site_libs
