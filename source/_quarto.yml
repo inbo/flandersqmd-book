@@ -9,6 +9,7 @@ project:
     - "!LICENSE.md" #ignore LICENSE.md
     - "!README.md" #ignore README.md
   output-dir: ../output
+  post-render: _extensions/flandersqmd-book/filters/rename.R
 
 execute:
   echo: false
@@ -27,30 +28,31 @@ flandersqmd:
   level: 2
   title: Title for the example website
   subtitle: The optional subtitle
+  shorttitle: short-title
   author:
-    - name:
-        given: Given
-        family: Family
-      email: given.family@vlaanderen.be
-      corresponding: true
-      orcid: 0000-0002-1825-0097
-      affiliation:
-        - Government of Flanders
-    - name:
-        given: Second
-        family: Author
-      email: second.author@vlaanderen.be
-      corresponding: true
-      orcid: 0000-0002-1825-0097
-      affiliation:
-        - Government of Flanders
-    - name:
-        given: Third
-        family: Author
-      email: third.author@vlaanderen.be
-      orcid: 0000-0002-1825-0097
-      affiliation:
-        - Government of Flanders
+  - name:
+      given: Given
+      family: Test
+    email: given.family@vlaanderen.be
+    corresponding: true
+    orcid: 0000-0002-1825-0097
+    affiliation:
+      - Government of Flanders
+  - name:
+      given: Second
+      family: Author
+    email: second.author@vlaanderen.be
+    corresponding: true
+    orcid: 0000-0002-1825-0097
+    affiliation:
+      - Government of Flanders
+  - name:
+      given: Third
+      family: Author
+    email: third.author@vlaanderen.be
+    orcid: 0000-0002-1825-0097
+    affiliation:
+      - Government of Flanders
   reviewer:
     - name:
         given: First
@@ -134,7 +136,7 @@ book:
         file: appendix-first.qmd
     right:
       - icon: mastodon
-        href: https://mastodon.online/@inbo
+        href: https://mastodon.online/&#64;inbo
       - icon: facebook
         href: https://www.facebook.com/INBOVlaanderen/
       - icon: github
