@@ -9,7 +9,7 @@ project:
     - "!LICENSE.md" #ignore LICENSE.md
     - "!README.md" #ignore README.md
   output-dir: ../output
-  post-render: _extensions/flandersqmd-book/filters/rename.R
+  post-render: _extensions/flandersqmd-book/filters/post_render.R
 
 execute:
   echo: false
