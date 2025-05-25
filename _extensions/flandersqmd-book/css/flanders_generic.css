@@ -186,7 +186,7 @@ div.callout-warning.callout-style-default > .callout-header {
 }
 
 body {
-  font-family: "flanders-art-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: flanders-art-sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--text-color);
   background-image: url(../img/background-pattern.png);
   background-size: auto;
@@ -204,7 +204,7 @@ body {
 }
 
 h1 {
-  font-family: 'flanders_art_sansmedium', sans-serif;
+  font-family: 'flanders-art-sansmedium', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 45px;
   line-height: 51px;
   text-transform: uppercase;
@@ -214,12 +214,12 @@ h1 {
 h2 {
   font-size: 28px;
   line-height: 34px;
-  font-family: 'flanders_art_sansregular', sans-serif;
+  font-family: 'flanders-art-sansregular', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h3 {
   font-size: 21px;
   line-height: 27px;
-  font-family: 'flanders_art_sansregular', sans-serif;
+  font-family: 'flanders-art-sansregular', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 p {
