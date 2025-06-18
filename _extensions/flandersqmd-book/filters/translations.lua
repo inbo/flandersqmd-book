@@ -210,12 +210,16 @@ function levelcss (entity)
   return css
 end
 
+function is_final(flandersqmd)
+  return not (is_empty(flandersqmd.title) or is_empty(flandersqmd.author) or is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer) or is_empty(flandersqmd.reportnr)) and (not flandersqmd.public_report or (not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr))))
+end
+
 function watermark(lang, flandersqmd)
   local result = ""
   if not is_empty(flandersqmd.watermark) then
     result = pandoc.utils.stringify(flandersqmd.watermark)
   end
-  if not (is_empty(flandersqmd.title) or is_empty(flandersqmd.author) or is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer) or is_empty(flandersqmd.reportnr)) and (not flandersqmd.public_report or (not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr)))) then
+  if is_final(flandersqmd) then
     return result
   end
   if (lang == "nl-BE") then
@@ -255,6 +259,9 @@ return {
       meta.watermark = watermark(pandoc.utils.stringify(meta.lang), meta.flandersqmd)
       meta.shortauthor = shortauthor(meta.flandersqmd.author)
       meta.ccby = pandoc.RawInline("latex", meta.translation.ccby)
+      if not is_final(meta.flandersqmd) or (not is_empty(meta.flandersqmd.linenr) and meta.flandersqmd.linenr) then
+        meta.displaylinenr = 1
+      end
       if is_empty(meta.flandersqmd.doi) then
         if not is_empty(meta.flandersqmd.reportnr) then
           meta.displaycolophon = 1

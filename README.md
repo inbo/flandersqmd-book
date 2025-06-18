@@ -201,6 +201,9 @@ And a `DRAFT` watermark will appear on every page.
   E.g. `jpg`, `png`, `svg`.
 - `watermark`: A text to display as a watermark on every page.
   Will be appended to the `DRAFT` watermark in case of missing mandatory settings.
+- `linenr`: A boolean indicating whether to display line numbers in the PDF version.
+  Defaults to `false` when omitted.
+  Always `true` in case of missing mandatory settings.
 
 ## Render your quarto report
 
@@ -304,6 +307,7 @@ flandersqmd:
   depotnr: optional depot number
   doi: 10.5281/zenodo.842223
   watermark: This is a watermark
+  linenr: false
   public_report: true
   colophon: true
   client:

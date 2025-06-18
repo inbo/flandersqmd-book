@@ -68,8 +68,8 @@ flandersqmd:
   coverdescription: Detail of a leaf. Photo by [Skyler Ewing](https://www.pexels.com/nl-nl/@skyler-ewing-266953?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) via [Pexels](https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
   ordernr: optional order number
   depotnr: optional depot number
-  doi: 10.5281/zenodo.842223
   watermark: This is a watermark
+  linenr: false
   public_report: true
   colophon: true
   client:
