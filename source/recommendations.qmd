@@ -24,7 +24,6 @@ set.seed(20200817)
 \phantomsection
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
-\vspace{34pt}
 
 <!-- remove this block when you don't want a list of tables -->
 \phantomsection
