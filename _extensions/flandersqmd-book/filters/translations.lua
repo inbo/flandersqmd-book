@@ -25,7 +25,7 @@ function translation_entity(result, lang, entity)
       result.address = "INBO Brussels, Herman Teirlinckgebouw, Havenlaan 88 bus 73, 1000 Brussels"
       result.city = "Brussels"
       result.mission = "The Research Institute for Nature and Forest (INBO) is an independent research institute of the Flemish government. Through applied scientific research, open data and knowledge, integration and disclosure, it underpins and evaluates biodiversity policy and management."
-      result.name = "Research Instute for Nature and Forest"
+      result.name = "Research Institute for Nature and Forest"
       result.tagline = "flanders-state-art.pdf"
       result.url = "https://www.vlaanderen.be/inbo/en-gb/homepage/"
       result.url_text = "vlaanderen.be/inbo"
