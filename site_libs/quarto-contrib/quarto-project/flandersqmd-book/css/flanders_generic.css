@@ -1,0 +1,294 @@
+body {
+  color: var(--text-color);
+}
+h1{
+  color: var(--heading-color) !important;
+}
+h2{
+  color: var(--heading-color) !important;
+}
+h3{
+  color: var(--heading-color) !important;
+}
+h4{
+  color: var(--heading-color) !important;
+}
+h5{
+  color: var(--heading-color) !important;
+}
+h6{
+  color: var(--heading-color) !important;
+}
+.header-section-number {
+  color: var(--heading-color);
+}
+.navbar{
+  background-color: var(--navbar-background) !important;
+}
+.navbar-brand{
+  color: var(--navbar-text-color) !important;
+}
+.navbar-brand:hover{
+  color: var(--navbar-hover-color) !important;
+  text-decoration-line: underline;
+}
+.navbar-nav .nav-link{
+  color: var(--navbar-text-color) !important;
+}
+.navbar-nav .nav-link.active {
+  color: var(--navbar-text-color) !important;
+}
+.navbar-nav .nav-link:hover{
+  color: var(--navbar-hover-color) !important;
+  text-decoration-line: underline;
+}
+.navbar .quarto-navbar-tools .quarto-navigation-tool{
+  color: var(--navbar-text-color) !important;
+}
+.navbar .quarto-navbar-tools .quarto-navigation-tool:hover{
+  color: var(--navbar-hover-color);
+  text-decoration-line: underline;
+}
+.navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon{
+  color: var(--navbar-text-color);
+}
+a{
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 300;
+}
+.sidebar nav[role="doc-toc"] ul > li > a.active, .sidebar nav[role="doc-toc"] ul > li > ul > li > a.active, .sidebar nav[role="doc-toc"] ul > li > ul > li > ul > li > a.active{
+  color: var(--link-color) !important;
+  border-left: 1px solid var(--link-color);
+  text-decoration: none;
+}
+.sidebar nav[role="doc-toc"] ul > li > a:hover, .sidebar nav[role="doc-toc"] ul > li > ul > li > a:hover, .sidebar nav[role="doc-toc"] ul > li > ul > li > ul > li > a:hover{
+  color: var(--link-color) !important;
+  text-decoration-line: underline;
+}
+a:hover{
+  text-decoration-line: underline;
+}
+#title-block-header a:hover {
+  text-decoration: underline;
+}
+.colophon-button{
+  color: var(--link-color);
+  border-width: 0;
+}
+.colophon-button:hover{
+  text-decoration: underline;
+}
+
+div.callout-note.callout {
+  border-left-color: var(--callout-note-color);
+}
+div.callout-note.callout-style-default > .callout-header {
+  background-color: var(--callout-note-background);
+}
+div.callout-tip.callout {
+  border-left-color: var(--callout-tip-color);
+}
+div.callout-tip.callout-style-default > .callout-header {
+  background-color: var(--callout-tip-background);
+}
+div.callout-caution.callout {
+  border-left-color: var(--callout-caution-color);
+}
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: var(--callout-caution-background);
+}
+div.callout-important.callout {
+  border-left-color: var(--callout-important-color);
+}
+div.callout-important.callout-style-default > .callout-header {
+  background-color: var(--callout-important-background);
+}
+div.callout-warning.callout {
+  border-left-color: var(--callout-warning-color);
+}
+div.callout-warning.callout-style-default > .callout-header {
+  background-color: var(--callout-warning-background);
+}
+
+@font-face {
+  font-family: flanders-art-sanslight;
+  src: url("../fonts/FlandersArtSans-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: flanders-art-sansmedium;
+  src: url("../fonts/FlandersArtSans-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: flanders-art-sansregular;
+  src: url("../fonts/FlandersArtSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: flanders-art-sansbold;
+  src: url("../fonts/FlandersArtSans-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: flanders-art-sans;
+  src: url("../fonts/FlandersArtSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: flanders-art-sans;
+  src: url("../fonts/FlandersArtSans-Medium.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: flanders-art-sans;
+  src: url("../fonts/FlandersArtSans-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: flanders-art-sans;
+  src: url("../fonts/FlandersArtSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: inconsolata;
+  src: url("../fonts/Inconsolata-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: inconsolata;
+  src: url("../fonts/Inconsolata-Medium.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: inconsolata;
+  src: url("../fonts/Inconsolata-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: inconsolata;
+  src: url("../fonts/Inconsolata-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: flanders-art-sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  background-image: url(../img/background-pattern.png);
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center center;
+  font-weight: 300;
+}
+
+.ccby {
+  content: url(../img/cc-by.svg);
+}
+
+.missing {
+  color: var(--missing-color);
+}
+
+h1 {
+  font-family: 'flanders-art-sansmedium', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 45px;
+  line-height: 51px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 34px;
+  font-family: 'flanders-art-sansregular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h3 {
+  font-size: 21px;
+  line-height: 27px;
+  font-family: 'flanders-art-sansregular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p {
+  margin-bottom: .85em;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+  color: var(--heading-color);
+}
+
+
+code {
+  font-family: inconsolata, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  color: var(--text-color);
+}
+code span.at{
+  color: var(--code-argument);
+}
+code span.cn{
+  color: var(--code-logical);
+}
+code span.co{
+  color: var(--code-comment);
+}
+code span.dv, code span.fl{
+  color: var(--code-number);
+}
+code span.sc, code span.fu{
+  color: var(--code-function);
+}
+code span.st{
+  color: var(--code-string);
+}
+div.sourceCode.cell-code {
+  background-color: var(--code-background);
+  border: 1px solid;
+  border-radius: .25rem;
+  border-color: var(--code-border)!important;
+}
+
+div.cell-output.cell-output-stderr{
+  border-left-color: var(--code-warning-border)!important;
+  border-left: 5px solid;
+  background-color: var(--code-warning-background);
+}
+div.cell-output.cell-output-error{
+  border-left-color: var(--code-error-border)!important;
+  border-left: 5px solid;
+  background-color: var(--code-error-background);
+}
+
+.content {
+  background-color: #ffffff;
+}
+
+.sidebar {
+  background-color: #ffffff;
+}
+
+img.ccby{
+  height: 1.6rem !important;
+}
+img.client{
+  max-height: 5rem !important;
+  max-width: 20rem !important;
+}
+
+
+#title-block-header.quarto-title-block.default .quarto-title-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
