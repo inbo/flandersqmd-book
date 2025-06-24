@@ -1,6 +1,6 @@
 # Display R code
 
-```{r code}
+```{r}
 #| label: datasets
 #| echo: TRUE
 #| error: TRUE

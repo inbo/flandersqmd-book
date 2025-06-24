@@ -372,9 +372,15 @@
 \renewcommand{\cfttoctitlefont}{\color{main.colour}\fontsize{\fontsizeintro}{\fontsizeintrointer} \selectfont \bfseries}
 \renewcommand{\cftloftitlefont}{\color{main.colour}\fontsize{\fontsizeintro}{\fontsizeintrointer} \selectfont \bfseries}
 \renewcommand{\cftlottitlefont}{\color{main.colour}\fontsize{\fontsizeintro}{\fontsizeintrointer} \selectfont \bfseries}
-\renewcommand{\cftaftertoctitle}{\vspace{14pt}\nopagebreak}
-\renewcommand{\cftafterloftitle}{\vspace{14pt}\nopagebreak}
-\renewcommand{\cftafterlottitle}{\vspace{14pt}\nopagebreak}
+\renewcommand{\cftaftertoctitle}{\nopagebreak}
+\renewcommand{\cftafterloftitle}{\nopagebreak}
+\renewcommand{\cftafterlottitle}{\nopagebreak}
+\renewcommand{\cftbeforetoctitleskip}{15pt}
+\renewcommand{\cftaftertoctitleskip}{14pt}
+\renewcommand{\cftbeforeloftitleskip}{15pt}
+\renewcommand{\cftafterloftitleskip}{14pt}
+\renewcommand{\cftbeforelottitleskip}{15pt}
+\renewcommand{\cftafterlottitleskip}{14pt}
 
 % define headers and footers
 \RequirePackage{lastpage}

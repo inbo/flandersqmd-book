@@ -25,7 +25,7 @@ function translation_entity(result, lang, entity)
       result.address = "INBO Brussels, Herman Teirlinckgebouw, Havenlaan 88 bus 73, 1000 Brussels"
       result.city = "Brussels"
       result.mission = "The Research Institute for Nature and Forest (INBO) is an independent research institute of the Flemish government. Through applied scientific research, open data and knowledge, integration and disclosure, it underpins and evaluates biodiversity policy and management."
-      result.name = "Research Instute for Nature and Forest"
+      result.name = "Research Institute for Nature and Forest"
       result.tagline = "flanders-state-art.pdf"
       result.url = "https://www.vlaanderen.be/inbo/en-gb/homepage/"
       result.url_text = "vlaanderen.be/inbo"
@@ -210,12 +210,16 @@ function levelcss (entity)
   return css
 end
 
+function is_final(flandersqmd)
+  return not (is_empty(flandersqmd.title) or is_empty(flandersqmd.author) or is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer) or is_empty(flandersqmd.reportnr)) and (not flandersqmd.public_report or (not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr))))
+end
+
 function watermark(lang, flandersqmd)
   local result = ""
   if not is_empty(flandersqmd.watermark) then
     result = pandoc.utils.stringify(flandersqmd.watermark)
   end
-  if not (is_empty(flandersqmd.title) or is_empty(flandersqmd.author) or is_empty(flandersqmd.year) or is_empty(flandersqmd.reviewer) or is_empty(flandersqmd.reportnr)) and (not flandersqmd.public_report or (not (is_empty(flandersqmd.doi) or is_empty(flandersqmd.depotnr)))) then
+  if is_final(flandersqmd) then
     return result
   end
   if (lang == "nl-BE") then
@@ -255,6 +259,9 @@ return {
       meta.watermark = watermark(pandoc.utils.stringify(meta.lang), meta.flandersqmd)
       meta.shortauthor = shortauthor(meta.flandersqmd.author)
       meta.ccby = pandoc.RawInline("latex", meta.translation.ccby)
+      if not is_final(meta.flandersqmd) or (not is_empty(meta.flandersqmd.linenr) and meta.flandersqmd.linenr) then
+        meta.displaylinenr = 1
+      end
       if is_empty(meta.flandersqmd.doi) then
         if not is_empty(meta.flandersqmd.reportnr) then
           meta.displaycolophon = 1

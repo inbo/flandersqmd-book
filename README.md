@@ -23,7 +23,8 @@ Research Institute for Nature and Forest (INBO)[^cph][^fnd]
 
 <!-- description: start -->
 This quarto extension builds on the quarto [book format](https://quarto.org/docs/books/) and provides the corporate identity of the Flemish government for reports.
-A full example is available on the [GitHub repo](https://github.io/inbo/flandersqmd-book/).
+A full example is available in the `source` folder in the [GitHub repo](https://github.com/inbo/flandersqmd-book/).
+Visit https://inbo.github.io/flandersqmd-book/ to view the rendered version of the example.
 <!-- description: end -->
 
 ## Installation
@@ -43,7 +44,7 @@ quarto install extension inbo/flandersqmd-book
 
 ```
 project:
-  type: flandersqmd-book
+  type: book
   preview:
     port: 4201
     browser: true
@@ -75,7 +76,7 @@ book:
   downloads: pdf
   open-graph: true
   sidebar:
-    logo: cover.png
+    logo: media/cover.png
   body-footer: '{{< footer >}}'
   navbar:
     left:
@@ -200,6 +201,9 @@ And a `DRAFT` watermark will appear on every page.
   E.g. `jpg`, `png`, `svg`.
 - `watermark`: A text to display as a watermark on every page.
   Will be appended to the `DRAFT` watermark in case of missing mandatory settings.
+- `linenr`: A boolean indicating whether to display line numbers in the PDF version.
+  Defaults to `false` when omitted.
+  Always `true` in case of missing mandatory settings.
 
 ## Render your quarto report
 
@@ -215,27 +219,26 @@ You can render your quarto report in two main ways:
 
 2. **Using the Terminal**  
    - Open a terminal and navigate to the folder of your quarto book
-   - Run the following command in the terminal:  
-     ```sh
-    # render all formats
-     quarto render
-     # render only the html format
-     quarto render --to flandersqmd-book-html
-     # render only the pdf format
-     quarto render --to flandersqmd-book-pdf
-     ```  
+   - Run the commands below in the terminal.
      This renders the book and saves it to disk like the **Render Book** button of the **Build** tab.
-   - If you want to preview the HTML format, you can run:
-     ```sh
-     quarto preview
-     ```  
-     This renders the book and starts a live preview, automatically updating the output when changes are detected.
+     Preview renders the book and starts a live preview, automatically updating the output when changes are detected.
+
+```sh
+# render all formats
+quarto render
+# render only the html format
+quarto render --to flandersqmd-book-html
+# render only the pdf format
+quarto render --to flandersqmd-book-pdf
+# preview the html format
+quarto preview
+```  
 
 ## Full example of the `_quarto.yml` file
 
 ```
 project:
-  type: flandersqmd-book
+  type: book
   preview:
     port: 4201
     browser: true
@@ -297,13 +300,14 @@ flandersqmd:
         - Government of Flanders
   year: 9999
   reportnr: 3.14
-  cover: cover.pdf
+  cover: media/cover.pdf
   coverphoto: https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227
   coverdescription: Detail of a leaf. Photo by [Skyler Ewing](https://www.pexels.com/nl-nl/@skyler-ewing-266953?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) via [Pexels](https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
   ordernr: optional order number
   depotnr: optional depot number
   doi: 10.5281/zenodo.842223
   watermark: This is a watermark
+  linenr: false
   public_report: true
   colophon: true
   client:
@@ -312,20 +316,20 @@ flandersqmd:
     - Havenlaan 88 bus 73
     - 1000 Brussel
   clienturl: https://www.vlaanderen.be/inbo/en-gb
-  clientlogo: logo.jpg
+  clientlogo: media/logo.jpg
   cooperation:
     - INBO Brussel
     - VAC Brussel ‐ Herman Teirlinck
     - Havenlaan 88 bus 73
     - 1000 Brussel
   cooperationurl: https://www.vlaanderen.be/inbo/en-gb
-  cooperationlogo: logo.jpg
+  cooperationlogo: media/logo.jpg
 
 book:
   downloads: pdf
   open-graph: true
   sidebar:
-    logo: cover.png
+    logo: media/cover.png
   body-footer: '{{< footer >}}'
   chapters:
     - index.md
