@@ -16,6 +16,8 @@ contributes:
       number-sections: true
       toc: true
       html-math-method: katex
+      format-resources:
+        - filters/post_render.R
       shortcodes:
         - shortcodes/colophon.lua
         - shortcodes/footer.lua
