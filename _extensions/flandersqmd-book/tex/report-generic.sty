@@ -389,7 +389,7 @@
 \newcommand{\mainTitle}[1]{% 1 input argument - main title
   \hspace{10mm}\parbox[t]{140mm}{%
     \addfontfeature{LetterSpace=0.014}%
-    \fontsize{\fontsizetitle}{\fontsizetitleinter} \selectfont \raggedright \MakeUppercase{\uline{#1}}%
+    \fontsize{\fontsizetitle}{\fontsizetitleinter} \selectfont \raggedright \bfseries \MakeUppercase{#1}%
     \addfontfeature{LetterSpace=0.0}%
   }%
   \relax%
@@ -502,7 +502,7 @@
     \vspace{26pt}
 
     \hspace{10mm}\parbox[t]{140mm}{
-      \fontsize{\fontsizesubtitle}{\fontsizesubtitleinter}\selectfont \raggedright \bfseries \@subtitle
+      \fontsize{\fontsizesubtitle}{\fontsizesubtitleinter}\selectfont \raggedright \@subtitle
     }
 
     \vspace{30pt}
