@@ -83,7 +83,7 @@ local function colophon_person(person, i, type)
       res = res .. ' ' .. pandoc.utils.stringify(person.name.family)
     end
     if not is_empty(person.orcid) then
-      res = res .. '\\includegraphics[height=\\fontsizebase]{orcid.eps}}'
+      res = res .. ' \\includegraphics[height=\\fontsizebase]{orcid.eps}}'
     end
   end
   return res
