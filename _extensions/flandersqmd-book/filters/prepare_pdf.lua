@@ -185,6 +185,17 @@ return {
           meta.flandersqmd.cooperationurl, meta.flandersqmd.cooperationlogo
         )
       end
+      if not is_empty(meta.flandersqmd.floatbarrier) then
+        if (pandoc.utils.stringify(meta.flandersqmd.floatbarrier) == "section") then
+          meta.floatbarriersection = true
+        end
+        if (pandoc.utils.stringify(meta.flandersqmd.floatbarrier) == "subsection") then
+          meta.floatbarriersubsection = true
+        end
+        if (pandoc.utils.stringify(meta.flandersqmd.floatbarrier) == "subsubsection") then
+          meta.floatbarriersubsubsection = true
+        end
+      end
       return meta
     end
   }

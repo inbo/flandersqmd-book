@@ -86,6 +86,7 @@ flandersqmd:
     - 1000 Brussel
   cooperationurl: https://www.vlaanderen.be/inbo/en-gb
   cooperationlogo: media/logo.jpg
+  floatbarrier: section
 
 book:
   downloads: pdf
