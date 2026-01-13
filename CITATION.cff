@@ -23,4 +23,7 @@ abstract: "This quarto extension builds on the quarto [book format](https://quar
   and provides the corporate identity of the Flemish government for reports.\nA full
   example is available in the `source` folder in the [GitHub repo](https://github.com/inbo/flandersqmd-book/).\nVisit
   https://inbo.github.io/flandersqmd-book/ to view the rendered version of the example."
+identifiers:
+- type: url
+  value: https://inbo.github.io/flandersqmd-book/
 version: 0.1.1
