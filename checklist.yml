@@ -1,9 +1,12 @@
 description: Configuration file for checklist::check_pkg()
 package: no
 allowed:
-  warnings: []
+  warnings:
+  - motivation: _extensions folder is required
+    value: A project should only have `data`, `inst`, `media`, `output`, `renv` and
+      `source` as main folder.
   notes:
-  - motivation: No DOI yet
+  - motivation: To do
     value: no DOI badge found in README.md
 required:
 - CITATION
