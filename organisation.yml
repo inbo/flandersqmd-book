@@ -1,0 +1,105 @@
+checklist version: 0.5.2
+git: https://github.com/inbo
+info@inbo.be:
+  name:
+    nl-BE: Instituut voor Natuur- en Bosonderzoek (INBO)
+    fr-FR: Institut de Recherche sur la Nature et les Forêts (INBO)
+    en-GB: Research Institute for Nature and Forest (INBO)
+    de-DE: Institut für Natur- und Waldforschung (INBO)
+  email: info@inbo.be
+  website: https://www.vlaanderen.be/inbo/en-gb
+  logo: https://inbo.github.io/checklist/reference/figures/logo-en.png
+  ror: https://ror.org/00j54wy13
+  orcid: yes
+  zenodo: inbo
+  rightsholder: shared
+  funder: when no other
+  license:
+    package:
+      GPL-3: https://raw.githubusercontent.com/inbo/checklist/refs/heads/main/inst/generic_template/gplv3.md
+      MIT: https://raw.githubusercontent.com/inbo/checklist/refs/heads/main/inst/generic_template/mit.md
+    project:
+      CC BY 4.0: https://raw.githubusercontent.com/inbo/checklist/refs/heads/main/inst/generic_template/cc_by_4_0.md
+    data:
+      CC0: https://raw.githubusercontent.com/inbo/checklist/131fe5829907079795533bfea767bf7df50c3cfd/inst/generic_template/cc0.md
+natuurenbos@vlaanderen.be:
+  name:
+    nl-BE: Agentschap voor Natuur en Bos (ANB)
+    en-GB: Agency for Nature & Forests (ANB)
+  email: natuurenbos@vlaanderen.be
+  website: https://www.natuurenbos.be/
+  ror: https://ror.org/04wcznf70
+  orcid: no
+  rightsholder: optional
+  funder: optional
+  license:
+    package: []
+    project: []
+    data: []
+omgeving@vlaanderen.be:
+  name:
+    nl-BE: Department Omgeving
+  email: omgeving@vlaanderen.be
+  website: https://omgeving.vlaanderen.be/
+  logo: https://omgeving.vlaanderen.be/sites/default/files/entiteitslogo-DOMG-92k2.png
+  orcid: no
+  rightsholder: optional
+  funder: optional
+  license:
+    package: []
+    project: []
+    data: []
+ilvo@ilvo.vlaanderen.be:
+  name:
+    nl-BE: Instituut voor Landbouw-, Visserij- en Voedingsonderzoek (ILVO)
+    en-GB: Flanders Research Institute for Agriculture, Fisheries and Food (ILVO)
+  email: ilvo@ilvo.vlaanderen.be
+  website: https://ilvo.vlaanderen.be/en
+  logo: https://ilvo.vlaanderen.be/uploads/images/logo-ILVO-2016-eng.png
+  ror: https://ror.org/05cjt1n05
+  orcid: no
+  rightsholder: optional
+  funder: optional
+  license:
+    package: []
+    project: []
+    data: []
+info@vlm.be:
+  name:
+    nl-BE: Vlaamse Landmaatschappij (VLM)
+  email: info@vlm.be
+  website: https://www.vlm.be/
+  logo: https://www.vlm.be/nl/SiteCollectionImages/Logo/Logo's%20Vlaamse%20overheid%20en%20VLM/Sponsorlogo_VLM_kleur.jpg
+  orcid: no
+  rightsholder: optional
+  funder: optional
+  license:
+    package: []
+    project: []
+    data: []
+info@vmm.be:
+  name:
+    nl-BE: Vlaamse Milieumaatschappij (VMM)
+    en-GB: Flanders Environment Agency (VMM)
+  email: info@vmm.be
+  website: https://en.vmm.vlaanderen.be/
+  logo: https://2016.vmm.be/assets/images/logo.svg
+  orcid: no
+  rightsholder: optional
+  funder: optional
+  license:
+    package: []
+    project: []
+    data: []
+info@vlaamsewaterweg.be:
+  name:
+    nl-BE: De Vlaamse Waterweg nv
+  email: info@vlaamsewaterweg.be
+  website: https://www.vlaamsewaterweg.be/
+  orcid: no
+  rightsholder: optional
+  funder: optional
+  license:
+    package: []
+    project: []
+    data: []

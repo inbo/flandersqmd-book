@@ -389,7 +389,7 @@
 \newcommand{\mainTitle}[1]{% 1 input argument - main title
   \hspace{10mm}\parbox[t]{140mm}{%
     \addfontfeature{LetterSpace=0.014}%
-    \fontsize{\fontsizetitle}{\fontsizetitleinter} \selectfont \raggedright \MakeUppercase{\uline{#1}}%
+    \fontsize{\fontsizetitle}{\fontsizetitleinter} \selectfont \raggedright \bfseries \MakeUppercase{#1}%
     \addfontfeature{LetterSpace=0.0}%
   }%
   \relax%
@@ -471,6 +471,9 @@
       \textbf{\@citationtag:} \\
         \@shortauthor~(\@citationyear). \@citationtitle. \ifnum \@public > 0 \@seriestag\else\@iseriestag\fi~\@entityname~\@citationyear~(\@reportnr). \@entityname, \@city. \ifnum \@public > 0 DOI: \href{https://doi.org/\@doi}{\@doi} \\ \fi
 
+
+      \vspace{\fontsizebase}
+
       \ifnum \@public > 0 \textbf{\@depotnr} \\ \fi
       \textbf{\ifnum \@public > 0 \@seriestag\else\@iseriestag\fi~\@entityname~\@citationyear~(\@reportnr)} \\
       \textbf{ISSN: \@issn}
@@ -502,7 +505,7 @@
     \vspace{26pt}
 
     \hspace{10mm}\parbox[t]{140mm}{
-      \fontsize{\fontsizesubtitle}{\fontsizesubtitleinter}\selectfont \raggedright \bfseries \@subtitle
+      \fontsize{\fontsizesubtitle}{\fontsizesubtitleinter}\selectfont \raggedright \@subtitle
     }
 
     \vspace{30pt}
@@ -510,7 +513,9 @@
     \hspace{10mm}\parbox[t]{140mm}{
       \fontsize{\fontsizeauthor}{\fontsizeauthorinter}\selectfont \raggedright \@titleauthor
     }
+
     \vspace{144pt}
+
     \hspace{10mm}\parbox[t]{140mm}{
        \fontsize{\fontsizeordernr}{\fontsizeordernrinter}\selectfont \raggedright
     \ifnum \@displaycolophon > 0 \ifnum \@public > 0 \@doi \\ \fi \else \DTMnow \\ \fi

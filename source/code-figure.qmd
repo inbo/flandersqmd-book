@@ -20,10 +20,10 @@ switch_colour(vl_darkyellow)
 #| label: gg-mtcars
 #| warning: false
 ggplot(
-  mtcars, 
+  mtcars,
   aes(x = wt, y = mpg, colour = factor(cyl), fill = factor(cyl))
 ) +
-  geom_point() + 
+  geom_point() +
   geom_smooth(method = "lm")
 ```
 
@@ -36,8 +36,8 @@ Otherwise the cross references don't work.
 ```{r}
 #| label: fig-movie
 #| fig.cap: "Distribution of esophageal cancer in Ille-et-Villaine, France."
-ggplot(esoph, aes(x = ncases / (ncases + ncontrols))) + 
-  geom_histogram() + 
+ggplot(esoph, aes(x = ncases / (ncases + ncontrols))) +
+  geom_histogram() +
   facet_wrap(~agegp, scales = "free")
 ```
 
@@ -46,7 +46,7 @@ ggplot(esoph, aes(x = ncases / (ncases + ncontrols))) +
 #| fig.cap: !expr paste("Code", "generated caption.")
 #| fig.width: 6
 #| fig.height: 4
-ggplot(diamonds, aes(x = price, fill = cut)) + 
+ggplot(diamonds, aes(x = price, fill = cut)) +
   geom_histogram()
 ```
 
@@ -58,9 +58,9 @@ ggplot(diamonds, aes(x = price, fill = cut)) +
 #| Reserved LaTex characters (&, %, \\) are OK."
 #| dev: "png"
 ggplot(
-  mtcars, 
+  mtcars,
   aes(x = wt, y = mpg, colour = factor(cyl), fill = factor(cyl))
 ) +
-  geom_point() + 
-  geom_smooth(method = "lm") 
+  geom_point() +
+  geom_smooth(method = "lm")
 ```

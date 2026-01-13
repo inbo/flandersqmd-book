@@ -24,6 +24,7 @@ format:
   flandersqmd-book-pdf: default
 
 flandersqmd:
+  license: CC-BY-4.0
   entity: INBO
   level: 2
   title: Title for the example website
@@ -61,9 +62,23 @@ flandersqmd:
       orcid: 0000-0002-1825-0097
       affiliation:
         - Government of Flanders
+  rightsholder:
+    - name:
+        given: Research Institute for Nature and Forest (INBO)
+      email: info@inbo.be
+      ror: https://ror.org/00j54wy13
+  funder:
+    - name:
+        given: Research Institute for Nature and Forest (INBO)
+      email: info@inbo.be
+      ror: https://ror.org/00j54wy13
+  community: inbo
   year: 9999
   reportnr: 3.14
   cover: media/cover.pdf
+  publication_type: publication-report
+  publisher: INBO
+  keywords: Flandersqmd
   coverphoto: https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227
   coverdescription: Detail of a leaf. Photo by [Skyler Ewing](https://www.pexels.com/nl-nl/@skyler-ewing-266953?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) via [Pexels](https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
   ordernr: optional order number
@@ -86,6 +101,7 @@ flandersqmd:
     - 1000 Brussel
   cooperationurl: https://www.vlaanderen.be/inbo/en-gb
   cooperationlogo: media/logo.jpg
+  floatbarrier: section
 
 book:
   downloads: pdf

@@ -120,16 +120,14 @@ function translation(lang, entity)
 end
 
 function abbreviate_person(person, i, type, n)
-  if i > 2 then
-    return ''
-  end
-  if i == 2 and n > 2 then
-    return ' et al.'
-  end
-  if (i > 1) then
-    res = ' & '
-  else
+  if i == 1 then
     res = ''
+  else
+    if i == n then
+      res = ' & '
+    else
+      res = ', '
+    end
   end
   if is_empty(person.name) then
     res = res .. '<h1 class = "missing">!!! flandersqmd.' .. type ..' element ' .. i .. ' has no name element!!!</h1>'

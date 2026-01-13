@@ -14,7 +14,7 @@ digit_table <- function(rows = 20, cols = 10) {
     row.names = paste("row", seq_len(rows))
   )
 }
-random_word <- function(n_letters = 5){
+random_word <- function(n_letters = 5) {
   paste(sample(letters, size = n_letters, replace = TRUE), collapse = "")
 }
 random_sentence <- function(words = 10, n_letters = 10) {
@@ -29,7 +29,7 @@ text_table <- function(rows = 20, cols = 10, words = 10, n_letters = 5) {
   x <- data.frame(
     matrix(
       sapply(
-        rpois(rows * cols, lambda = words), 
+        rpois(rows * cols, lambda = words),
         random_sentence,
         n_letters
       ),
@@ -41,7 +41,7 @@ text_table <- function(rows = 20, cols = 10, words = 10, n_letters = 5) {
   return(x)
 }
 generate_table <- function(
-    rows = 20, cols = c(5, 5), words = 10, n_letters = 5
+  rows = 20, cols = c(5, 5), words = 10, n_letters = 5
 ) {
   cbind(
     digit_table(rows = rows, cols = cols[1]),
