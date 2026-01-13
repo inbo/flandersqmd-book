@@ -1,14 +1,14 @@
 {
+  "license": "CC BY 4.0",
   "access_right": "open",
   "title": "Quarto extension providing the corporate identity of the Flemish government for reports",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "<p>This quarto extension builds on the quarto <a href=\"https://quarto.org/docs/books/\">book format<\/a> and provides the corporate identity of the Flemish government for reports. A full example is available in the <code>source<\/code> folder in the <a href=\"https://github.com/inbo/flandersqmd-book/\">GitHub repo<\/a>. Visit https://inbo.github.io/flandersqmd-book/ to view the rendered version of the example.<\/p>",
   "keywords": [
     "quarto",
     "corporate identity"
   ],
   "upload_type": "software",
-  "license": "CC-BY-4.0",
   "language": "eng",
   "contributors": [
     {

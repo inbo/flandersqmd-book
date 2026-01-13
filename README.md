@@ -1,25 +1,28 @@
 <!-- badges: start -->
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/inbo/checklist/check_project.yml)
-![GitHub](https://img.shields.io/github/license/inbo/flandersqmd-book)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/inbo/flandersqmd-book/check-project)
+[![Project Status: Concept - Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-brightgreen)](https://raw.githubusercontent.com/inbo/checklist/refs/heads/main/inst/generic_template/cc_by_4_0.md)
+[![Release](https://img.shields.io/github/release/inbo/flandersqmd-book.svg)](https://github.com/inbo/flandersqmd-book/releases)
+![GitHub Workflow Status](https://github.com/inbo/flandersqmd-book/actions/workflows/check_project.yml/badge.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/inbo/flandersqmd-book)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/inbo/flandersqmd-book.svg)
 <!-- badges: end -->
 
 # Quarto extension providing the corporate identity of the Flemish government for reports
 
-[Onkelinx, Thierry![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-8804-4216)[^aut][^cre][^inbo]
-Research Institute for Nature and Forest (INBO)[^cph][^fnd]
+[Onkelinx, Thierry![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-8804-4216)[^aut][^cre][^INBO];
+[Research Institute for Nature and Forest (INBO)](mailto:info%40inbo.be)[^cph][^fnd]
 
-[^inbo]: Research Institute for Nature and Forest (INBO)
-[^cph]: copyright holder
-[^fnd]: funder
 [^aut]: author
+[^cph]: copyright holder
 [^cre]: contact person
+[^fnd]: funder
+[^INBO]: Research Institute for Nature and Forest (INBO)
 
 **keywords**: quarto; corporate identity
 
 <!-- community: inbo -->
-<!-- version: 0.1.0 -->
+<!-- version: 0.1.1 -->
 
 <!-- description: start -->
 This quarto extension builds on the quarto [book format](https://quarto.org/docs/books/) and provides the corporate identity of the Flemish government for reports.
