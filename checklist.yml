@@ -18,3 +18,8 @@ spelling:
   ignore:
   - .github
   - LICENSE.md
+pak:
+- qpdf
+- pdftools
+- quarto
+- colorspace
