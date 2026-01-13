@@ -8,6 +8,8 @@ toc: false
 
 Excerpt on ecology taken from [Wikipedia](https://en.wikipedia.org/wiki/Ecology)
 
+<!-- description: start -->
+
 **Ecology** (from
 oicos, <!-- spell-check: ignore -->
 "house", or "environment"; logia, "study of") is the branch of [biology](http://www.dictionary.com/browse/ecology|title=the definition of ecology|website=Dictionary.com|access-date=2018-02-20) which studies the interactions among organisms and their environment. 
@@ -17,6 +19,8 @@ Ecosystems are dynamically interacting systems of organisms, the communities the
 Ecosystem processes, such as primary production, pedogenesis, nutrient cycling, and niche construction, regulate the flux of energy and matter through an environment.
 These processes are sustained by organisms with specific life history traits.
 Biodiversity means the varieties of species, genes, and ecosystems, enhances certain ecosystem services.
+
+<!-- description: end -->
 
 Ecology is not synonymous with environmentalism, natural history, or environmental science.
 It overlaps with the closely related sciences of evolutionary biology, genetics, and ethology.
