@@ -15,7 +15,7 @@ contact:
   family-names: Onkelinx
   affiliation: Research Institute for Nature and Forest (INBO)
   orcid: 0000-0001-8804-4216
-doi: ~
+doi: 10.5281/zenodo.17183382
 license: CC BY 4.0
 repository-code: https://github.com/inbo/flandersqmd-book/
 type: software
@@ -24,6 +24,8 @@ abstract: "This quarto extension builds on the quarto [book format](https://quar
   example is available in the `source` folder in the [GitHub repo](https://github.com/inbo/flandersqmd-book/).\nVisit
   https://inbo.github.io/flandersqmd-book/ to view the rendered version of the example."
 identifiers:
+- type: doi
+  value: 10.5281/zenodo.17183382
 - type: url
   value: https://inbo.github.io/flandersqmd-book/
 version: 0.1.1
