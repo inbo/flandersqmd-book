@@ -1,0 +1,60 @@
+{
+  "description": "<p><strong>Ecology<\/strong> (from oicos, <!-- spell-check: ignore --> “house”, or “environment”; logia, “study of”) is the branch of <a href=\"http://www.dictionary.com/browse/ecology%7Ctitle=the%20definition%20of%20ecology%7Cwebsite=Dictionary.com%7Caccess-date=2018-02-20\">biology<\/a> which studies the interactions among organisms and their environment. Objects of study include interactions of organisms with each other and with abiotic components of their environment. Topics of interest include the biodiversity, distribution, biomass, and populations of organisms, as well as cooperation and competition within and between species. Ecosystems are dynamically interacting systems of organisms, the communities they make up, and the non-living components of their environment. Ecosystem processes, such as primary production, pedogenesis, nutrient cycling, and niche construction, regulate the flux of energy and matter through an environment. These processes are sustained by organisms with specific life history traits. Biodiversity means the varieties of species, genes, and ecosystems, enhances certain ecosystem services.<\/p>",
+  "title": "Title for the example website. The optional subtitle.",
+  "shorttitle": "short-title",
+  "upload_type": "publication",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "language": "eng",
+  "keywords": [
+    "Flandersqmd"
+  ],
+  "publication_type": "publication-report",
+  "publisher": "INBO",
+  "contributors": [
+    {
+      "name": "Test, Given",
+      "affiliation": "Government of Flanders",
+      "orcid": "0000-0002-1825-0097",
+      "type": "contactperson"
+    },
+    {
+      "name": "Author, Second",
+      "affiliation": "Government of Flanders",
+      "orcid": "0000-0002-1825-0097",
+      "type": "contactperson"
+    },
+    {
+      "name": "Reviewer, First",
+      "affiliation": "Government of Flanders",
+      "orcid": "0000-0002-1825-0097",
+      "type": "other"
+    },
+    {
+      "name": "Research Institute for Nature and Forest (INBO)",
+      "type": "rightsholder"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Test, Given",
+      "affiliation": "Government of Flanders",
+      "orcid": "0000-0002-1825-0097"
+    },
+    {
+      "name": "Author, Second",
+      "affiliation": "Government of Flanders",
+      "orcid": "0000-0002-1825-0097"
+    },
+    {
+      "name": "Author, Third",
+      "affiliation": "Government of Flanders",
+      "orcid": "0000-0002-1825-0097"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "inbo"
+    }
+  ]
+}

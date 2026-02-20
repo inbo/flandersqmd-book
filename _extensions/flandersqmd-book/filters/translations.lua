@@ -8,7 +8,7 @@ function translation_entity(result, lang, entity)
     if (lang == "nl-BE") then
       result.address = "INBO Brussel, Herman Teirlinckgebouw, Havenlaan 88 bus 73, 1000 Brussel"
       result.city = "Brussel"
-      result.mission = "Het INBO is het onafhankelijk onderzoeksinstituut van de Vlaamse overheid dat via toegepast wetenschappelijk onderzoek, data- en kennisontsluiting het biodiversiteitsbeleid en -beheer onderbouwt en evalueert."
+      result.mission = "Het INBO is het onderzoeksinstituut van de Vlaamse overheid dat via onafhankelijk toegepast wetenschappelijk onderzoek, data- en kennisontsluiting het biodiversiteitsbeleid en -beheer onderbouwt en evalueert."
       result.name = "Instituut voor Natuur- en Bosonderzoek"
       result.tagline = "vlaanderen-wetenschap.pdf"
       result.url = "https://www.vlaanderen.be/inbo"
@@ -16,7 +16,7 @@ function translation_entity(result, lang, entity)
     elseif (lang == "fr-FR") then
       result.address = "INBO Bruxelles, Herman Teirlinckgebouw, Avenu du Port 88 boîte 73, 1000 Bruxelles"
       result.city = "Bruxelles"
-      result.mission = "l'Institut de Recherche sur la Nature et les Forêts ('Instituut voor Natuur- en Bosonderzoek', INBO) est un institut de recherche indépendant du gouvernement flamand, qui étaye et évalue la politique et la gestion en matière de biodiversité par la recherche scientifique appliquée, l'intégration et la dissémination publique de données et de connaissances."
+      result.mission = "L'Institut de Recherche sur la Nature et les Forêts (« Instituut voor Natuur- en Bosonderzoek », INBO) est un institut de recherche du gouvernement flamand qui étaye et évalue la politique et la gestion en matière de biodiversité par le biais de la recherche scientifique appliquée indépendante et par l'intégration et la dissémination publique des données et des connaissances."
       result.name = "l'Institut de Recherche sur la Nature et les Forêts"
       result.tagline = "flanders-state-art.pdf"
       result.url = "https://www.vlaanderen.be/inbo/en-gb/homepage/"
@@ -24,7 +24,7 @@ function translation_entity(result, lang, entity)
     else
       result.address = "INBO Brussels, Herman Teirlinckgebouw, Havenlaan 88 bus 73, 1000 Brussels"
       result.city = "Brussels"
-      result.mission = "The Research Institute for Nature and Forest (INBO) is an independent research institute of the Flemish government. Through applied scientific research, open data and knowledge, integration and disclosure, it underpins and evaluates biodiversity policy and management."
+      result.mission = "The Research Institute for Nature and Forest (INBO) is a research institute of the Flemish government. Through independent applied scientific research, open data and knowledge, integration and disclosure, it underpins and evaluates biodiversity policy and management."
       result.name = "Research Institute for Nature and Forest"
       result.tagline = "flanders-state-art.pdf"
       result.url = "https://www.vlaanderen.be/inbo/en-gb/homepage/"
