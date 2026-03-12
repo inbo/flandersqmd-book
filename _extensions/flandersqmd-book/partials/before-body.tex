@@ -1,3 +1,6 @@
+$if(flandersqmd.hyphenation)$
+\hyphenation{$for(flandersqmd.hyphenation)$$flandersqmd.hyphenation$$sep$ $endfor$}
+$endif$
 $if(flandersqmd.cover)$
 \includepdf[pages=1]{$flandersqmd.cover$}
 $endif$
