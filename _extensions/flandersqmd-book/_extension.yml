@@ -29,9 +29,12 @@ contributes:
       filters:
         - filters/translations.lua
     pdf:
+      documentclass: scrbook
+      classoption: twoside
+      papersize: a4
       template-partials:
         - "partials/before-body.tex"
-        - "partials/doc-class.tex"
+        - "partials/after-header-includes.latex"
       format-resources:
         - img/cc-by.eps
         - img/flanders-state-art.pdf
