@@ -24,7 +24,7 @@
 **keywords**: quarto; corporate identity
 
 <!-- community: inbo -->
-<!-- version: 0.1.1 -->
+<!-- version: 0.1.2 -->
 
 <!-- description: start -->
 This quarto extension builds on the quarto [book format](https://quarto.org/docs/books/) and provides the corporate identity of the Flemish government for reports.
