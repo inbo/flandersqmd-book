@@ -30,7 +30,9 @@ contributes:
         - filters/translations.lua
     pdf:
       documentclass: scrbook
-      classoption: twoside
+      classoption:
+        - twoside
+        - openany
       papersize: a4
       template-partials:
         - "partials/before-body.tex"
