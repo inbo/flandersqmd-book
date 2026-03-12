@@ -1,5 +1,7 @@
 # Language
 
+## Setting the language
+
 Set the main language of the document with the `lang:` tag in `_quarto.yml`.
 @tbl-language lists a few of the available tags.
 
@@ -39,3 +41,20 @@ vlinder [papillon]{lang=fr-FR}
 :::
 
 Note that you cannot use the main document language as a secondary language.
+
+## Hyphenation
+
+When rendering a pdf, the LaTeX engine will hyphenate words if it results in a nicer whitespace.
+This automatic hyphenation sometime splits words at a wrong point.
+You can add the correct splits of such words to the `flandersqmd` section of `_quarto.yml`.
+Add every word with dashes at the locations where you want to allow the hyphenation to happen.
+Then the LaTeX engine will only consider those locations to hyphenate the word.
+The example below lists three words: `flanderqmd` which may not be hyphenated, `document` which can only be hyphenated at a single position and `secondary` which can be hyphenated at three locations.
+
+```
+flandersqmd:
+  hyphenation:
+    - flandersqmd
+    - docu-ment
+    - se-con-da-ry
+```
