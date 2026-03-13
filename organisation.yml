@@ -9,7 +9,7 @@ info@inbo.be:
   email: info@inbo.be
   website: https://www.vlaanderen.be/inbo/en-gb
   logo: https://inbo.github.io/checklist/reference/figures/logo-en.png
-  ror: https://ror.org/00j54wy13
+  ror: 00j54wy13
   orcid: yes
   zenodo: inbo
   rightsholder: shared
@@ -28,7 +28,7 @@ natuurenbos@vlaanderen.be:
     en-GB: Agency for Nature & Forests (ANB)
   email: natuurenbos@vlaanderen.be
   website: https://www.natuurenbos.be/
-  ror: https://ror.org/04wcznf70
+  ror: 04wcznf70
   orcid: no
   rightsholder: optional
   funder: optional
@@ -56,7 +56,7 @@ ilvo@ilvo.vlaanderen.be:
   email: ilvo@ilvo.vlaanderen.be
   website: https://ilvo.vlaanderen.be/en
   logo: https://ilvo.vlaanderen.be/uploads/images/logo-ILVO-2016-eng.png
-  ror: https://ror.org/05cjt1n05
+  ror: 05cjt1n05
   orcid: no
   rightsholder: optional
   funder: optional

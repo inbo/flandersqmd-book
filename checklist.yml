@@ -5,9 +5,7 @@ allowed:
   - motivation: _extensions folder is required
     value: A project should only have `data`, `inst`, `media`, `output`, `renv` and
       `source` as main folder.
-  notes:
-  - motivation: To do
-    value: no DOI badge found in README.md
+  notes: []
 required:
 - CITATION
 - checklist
