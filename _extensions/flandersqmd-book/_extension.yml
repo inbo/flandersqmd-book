@@ -53,7 +53,8 @@ contributes:
       shortcodes:
         - shortcodes/colophon.lua
         - shortcodes/footer.lua
-      pdf-engine: xelatex
+      pdf-engine: latexmk
+      pdf-engine-opt: -xelatex
       toc: false
       lof: false
       lot: false
