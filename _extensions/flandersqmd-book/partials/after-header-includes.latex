@@ -137,3 +137,7 @@ $endif$
 $if(flandersqmd.hyphenation)$
 \hyphenation{$for(flandersqmd.hyphenation)$$flandersqmd.hyphenation$$sep$ $endfor$}
 $endif$
+
+$if(affiliation)$
+\affiliations{$affiliation$}
+$endif$
