@@ -21,7 +21,7 @@
 [^fnd]: funder
 [^INBO]: Research Institute for Nature and Forest (INBO)
 
-**keywords**: quarto; corporate identity
+**keywords**: quarto; corporate identity; inbo_version
 
 <!-- community: inbo -->
 <!-- version: 0.1.2 -->
@@ -110,6 +110,9 @@ book:
 - `entity`: The entity that is publishing the report.
   Currently only `INBO` is supported.
   Defaults to `INBO` when omitted.
+- `office`: The office of the entity that is publishing the report.
+  Currently only `Brussel`, `Geraardsbergen` and `Linkebeek` are supported.
+  Defaults to `Brussel` when omitted or when an unsupported value is provided.
 - `level`: The style guide level of the report.
   `1` refers to the global corporate identity of the Flemish government.
   `2` refers to the entity level corporate identity.
@@ -212,17 +215,17 @@ And a `DRAFT` watermark will appear on every page.
 
 ## Render your quarto report
 
-You can render your quarto report in two main ways:  
+You can render your quarto report in two main ways:
 
-1. **Using RStudio's Build Pane**  
+1. **Using RStudio's Build Pane**
    - Open your quarto book project in RStudio.
-   - Click on the **Build** tab (usually found in the top-right panel).  
+   - Click on the **Build** tab (usually found in the top-right panel).
    - Click **Render Book** to generate all formats.
      You can click on the down arrow next to the **Render Book** button to render only a specific format.
      If no `flandersqmd-book` format is available, restart your quarto book project and try again.
    - The output format is saved to disk.
 
-2. **Using the Terminal**  
+2. **Using the Terminal**
    - Open a terminal and navigate to the folder of your quarto book
    - Run the commands below in the terminal.
      This renders the book and saves it to disk like the **Render Book** button of the **Build** tab.
@@ -237,7 +240,7 @@ quarto render --to flandersqmd-book-html
 quarto render --to flandersqmd-book-pdf
 # preview the html format
 quarto preview
-```  
+```
 
 ## Full example of the `_quarto.yml` file
 
@@ -268,6 +271,7 @@ format:
 
 flandersqmd:
   entity: INBO
+  office: Brussel
   level: 2
   title: Title for the example website
   subtitle: The optional subtitle

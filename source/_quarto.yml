@@ -26,6 +26,7 @@ format:
 flandersqmd:
   license: CC-BY-4.0
   entity: INBO
+  office: Brussel
   level: 2
   title: Title for the example website
   subtitle: The optional subtitle
