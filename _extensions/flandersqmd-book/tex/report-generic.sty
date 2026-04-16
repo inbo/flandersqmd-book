@@ -3,6 +3,12 @@
 \ProvidesPackage{report-generic}
 
 % definition of custom commands
+\def\affiliationstag#1{\def\@affiliationstag{#1}}
+\affiliationstag{Affiliations}
+
+\def\affiliations#1{\def\@affiliations{#1}}
+\affiliations{}
+
 \def\ccby#1{\def\@ccby{#1}}
 \ccby{}
 
@@ -460,6 +466,8 @@
       \textbf{\@colophonauthortag:} \\ \@colophonauthor
 
       \textbf{\@reviewertag:} \\ \@reviewer
+
+      \textbf{\@affiliationstag:} \\ \@affiliations
 
       \@missiontag
 
