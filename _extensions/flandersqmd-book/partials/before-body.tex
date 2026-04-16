@@ -1,18 +1,11 @@
-$if(flandersqmd.hyphenation)$
-\hyphenation{$for(flandersqmd.hyphenation)$$flandersqmd.hyphenation$$sep$ $endfor$}
-$endif$
 $if(flandersqmd.cover)$
-\includepdf[pages=1]{$flandersqmd.cover$}
+\begingroup
+% Neutralize KOMA-Script's specific odd-page forcing
+\let\cleardoubleoddpage\clearpage
+\thispagestyle{empty}{\includepdf[pages=1, pagecommand={}]{$flandersqmd.cover$}}
 $endif$
-$if(has-frontmatter)$
 \frontmatter
-$endif$
-$if(beamer)$
-$if(flandersqmd.title)$
-\frame{\titlepage}
-$else$
-\frame{!!! Missing flandersqmd.title !!!}
-$endif$
-$else$
 \maketitle
+$if(flandersqmd.cover)$
+\endgroup
 $endif$

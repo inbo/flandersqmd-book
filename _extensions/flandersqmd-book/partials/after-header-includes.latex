@@ -81,6 +81,7 @@ $endif$
 $if(flandersqmd.coverdescription)$
 \coverdescription{$flandersqmd.coverdescription$}
 $endif$
+
 \client{$client$}
 \cooperation{$cooperation$}
 \ccby{$ccby$}
@@ -131,4 +132,8 @@ $if(floatbarriersubsubsection)$
    \gdef\@fb@afterHHook{}
 }
 \makeatother
+$endif$
+
+$if(flandersqmd.hyphenation)$
+\hyphenation{$for(flandersqmd.hyphenation)$$flandersqmd.hyphenation$$sep$ $endfor$}
 $endif$
