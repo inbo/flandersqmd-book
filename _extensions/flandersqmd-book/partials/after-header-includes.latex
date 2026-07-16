@@ -75,6 +75,7 @@ $endif$
 \iseriestag{$translation.iseries$}
 \city{$translation.city$}
 \issn{$translation.issn_nr$}
+\van{$translation.van$}
 \vu{$translation.vu$}
 \vuname{$translation.vu_name$}
 \covertag{$translation.coverdescription$}
