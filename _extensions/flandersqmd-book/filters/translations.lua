@@ -92,6 +92,7 @@ function translation(lang, entity, office)
       reviewer = "Nagelezen door",
       reviewer_pdf = "Reviewers",
       series = "Rapporten van het",
+      van = "van",
       vu = "Verantwoordelijke uitgever",
       year = "Gepubliceerd in"
     }
@@ -114,6 +115,7 @@ function translation(lang, entity, office)
       reviewer = "Examiné par",
       reviewer_pdf = "Reviewers",
       series = "Rapports de",
+      van = "de",
       vu = "Éditeur responsable",
       year = "Publié en"
     }
@@ -131,11 +133,12 @@ function translation(lang, entity, office)
       export = "Export reference to",
       iseries = "Internal reports of the",
       location = "Location",
-      mission = "Misson statement",
+      mission = "Mission statement",
       ordernr = "Order number",
       reviewer = "Reviewed by",
       reviewer_pdf = "Reviewers",
       series = "Reports of the",
+      van = "of",
       vu = "Responsible publisher",
       year = "Published during"
     }
