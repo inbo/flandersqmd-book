@@ -152,10 +152,6 @@ book:
       - text: Appendices
         file: appendix-first.qmd
     right:
-      - icon: mastodon
-        href: https://mastodon.online/&#64;inbo
-      - icon: facebook
-        href: https://www.facebook.com/INBOVlaanderen/
       - icon: github
         menu:
           - text: Source Code
