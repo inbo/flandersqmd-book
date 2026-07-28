@@ -8,145 +8,33 @@ name: quarto
 
 jobs:
   quarto:
-    runs-on: ubuntu-latest
-    name: "Build document"
+    runs-on: ubuntu-24.04
+    name: check-package
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      INPUT_FOLDER: "source"
+      RSPM: "https://packagemanager.posit.co/cran/__linux__/noble/latest"
+      QUARTO_SOURCE: "source"
+      QUARTO_OUTPUT: "output"
     permissions:
       contents: read
     steps:
-    - name: "Check out code"
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+      - name: "Prepare quarto"
+        uses: inbo/actions/quarto_prepare@composite
+        with:
+          path: ${{ env.QUARTO_SOURCE }}
+          texlive: array babel-dutch babel-french babel-german booktabs caption colortbl datetime2 emptypage enumitem etoolbox fancyhdr fontawesome5 footmisc geometry hyphen-dutch hyphen-french hyphen-german hyperref iftex lastpage longtable makecell multirow parskip pdfpages selnolig setspace textcase titlesec tocloft ucharcat unicode-math url xcolor xurl
+      - name: "Render quarto"
+        uses: inbo/actions/quarto_render@composite
+        with:
+          path: ${{ env.QUARTO_SOURCE }}
+          output: ${{ env.QUARTO_OUTPUT }}
 
-    - name: "Set up R"
-      uses: r-lib/actions/setup-r@ff9d3a3fd8acec17e91f1d0a1876d95ad60cb519
-      with:
-        r-version: 'release'
-        extra-repositories: https://cranhaven.r-universe.dev https://inbo.r-universe.dev
-
-    - name: "Install system dependencies"
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y --no-install-recommends \
-          libpoppler-cpp-dev \
-          poppler-data
-        sudo apt-get clean
-      shell: bash {0}
-
-    - name: Install R packages
-      run: |
-        install.packages(c("flandersqmd", "ggplot2", "INBOtheme", "knitr", "lipsum", "rmarkdown"))
-      shell: Rscript {0}
-
-    - name: Setup Quarto
-      uses: quarto-dev/quarto-actions/setup@10ecffe43941bc1d1ea080631818c4aa70ee0435
-
-    - name: Install Quarto dependencies
-      run: |
-        quarto install tool tinytex --no-prompt --update-path
-        tlmgr update --self
-        tlmgr install \
-          array \
-          babel-dutch \
-          babel-french \
-          babel-german \
-          booktabs \
-          caption \
-          colortbl \
-          datetime2 \
-          emptypage \
-          enumitem \
-          etoolbox \
-          fancyhdr \
-          fontawesome5 \
-          footmisc \
-          geometry \
-          hyphen-dutch \
-          hyphen-french \
-          hyphen-german \
-          hyperref \
-          iftex \
-          lastpage \
-          longtable \
-          makecell \
-          multirow \
-          parskip \
-          pdfpages \
-          selnolig \
-          setspace \
-          textcase \
-          titlesec \
-          tocloft \
-          ucharcat \
-          unicode-math \
-          url \
-          xcolor \
-          xurl
-
-        # Install bundled Calibri fonts (repo source of truth)
-        sudo mkdir -p /usr/local/share/fonts/truetype/calibri
-        sudo cp _extensions/flandersqmd-book/fonts/calibri*.ttf /usr/local/share/fonts/truetype/calibri/
-
-        # Install Inconsolata
-        mkdir -p ${HOME}/.fonts
-        wget -O ${HOME}/.fonts/Inconsolatazi4-Regular.otf http://mirrors.ctan.org/fonts/inconsolata/opentype/Inconsolatazi4-Regular.otf
-        wget -O ${HOME}/.fonts/Inconsolatazi4-Bold.otf http://mirrors.ctan.org/fonts/inconsolata/opentype/Inconsolatazi4-Bold.otf
-
-        # Rebuild cache and verify fonts
-        sudo fc-cache -f -v
-        fc-list | grep -Ei "calibri|calibri regular" || (echo "Calibri still not found" && exit 1)
-      shell: bash {0}
-
-    - name: Render Quarto Project
-      uses: quarto-dev/quarto-actions/render@87b35bb88b36317fa36b5189e9553b4164a5c5a3
-      with:
-        path: source
-
-    - name: "Upload docs artifact"
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
-      with:
-        name: output
-        path: output/
-        if-no-files-found: ignore
-
-  publish:
-    runs-on: ubuntu-latest
-    name: "Publish document"
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+   publish:
+    name: deploy-gh-pages
+    runs-on: ubuntu-24.04
     needs: quarto
     if: github.ref == 'refs/heads/main'
     permissions:
       contents: write
     steps:
-    - name: "Check out code"
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
-      with:
-        fetch-depth: 0
-
-    - name: Prepare gh-pages
-      run: |
-        rm body.md
-        if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
-          # Branch exists: check it out and amend
-          git fetch origin gh-pages
-          git checkout gh-pages
-          git rm -rf --ignore-unmatch .
-        else
-          # Branch does not exist: create orphan branch
-          git checkout --orphan gh-pages
-        fi
-      shell: bash
-
-    - name: "Download output artifact"
-      uses: actions/download-artifact@484a0b528fb4d7bd804637ccb632e47a0e638317
-      with:
-        name: output
-
-    - name: Deploy output to gh-pages
-      run: |
-        git add -A
-        git commit --amend --no-edit --allow-empty
-        git push --force origin gh-pages
-      shell: bash
+      - name: "Deploy gh-pages"
+        uses: inbo/actions/quarto_publish@composite
