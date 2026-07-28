@@ -73,12 +73,16 @@ flandersqmd:
         given: Research Institute for Nature and Forest (INBO)
       email: info@inbo.be
       ror: 00j54wy13
+  publisher:
+    - name:
+        given: Research Institute for Nature and Forest (INBO)
+      email: info@inbo.be
+      ror: 00j54wy13
   community: inbo
   year: 9999
   reportnr: 3.14
   cover: media/cover.pdf
   publication_type: publication-report
-  publisher: INBO
   keywords: Flandersqmd
   coverphoto: https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227
   coverdescription: Detail of a leaf. Photo by [Skyler Ewing](https://www.pexels.com/nl-nl/@skyler-ewing-266953?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) via [Pexels](https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)

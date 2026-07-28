@@ -32,3 +32,5 @@ docs
 libs
 output
 renv/library
+
+/.luarc.json
