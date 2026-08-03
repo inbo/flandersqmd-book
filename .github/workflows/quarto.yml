@@ -2,33 +2,69 @@ on:
   push:
     branches-ignore:
       - gh-pages
-      - main
 
 name: quarto
 
 jobs:
   quarto:
     runs-on: ubuntu-24.04
-    name: check-package
+    name: render
     env:
       RSPM: "https://packagemanager.posit.co/cran/__linux__/noble/latest"
-      QUARTO_SOURCE: "source"
-      QUARTO_OUTPUT: "output"
     permissions:
       contents: read
     steps:
-      - name: "Prepare quarto"
-        uses: inbo/actions/quarto_prepare@composite
-        with:
-          path: ${{ env.QUARTO_SOURCE }}
-          texlive: array babel-dutch babel-french babel-german booktabs caption colortbl datetime2 emptypage enumitem etoolbox fancyhdr fontawesome5 footmisc geometry hyphen-dutch hyphen-french hyphen-german hyperref iftex lastpage longtable makecell multirow parskip pdfpages selnolig setspace textcase titlesec tocloft ucharcat unicode-math url xcolor xurl
       - name: "Render quarto"
         uses: inbo/actions/quarto_render@composite
         with:
-          path: ${{ env.QUARTO_SOURCE }}
-          output: ${{ env.QUARTO_OUTPUT }}
+          path: source
+          output: output
+          texlive: |
+            babel-dutch
+            babel-french
+            babel-german
+            booktabs
+            caption
+            colortbl
+            datetime2
+            emptypage
+            enumitem
+            etoolbox
+            fancyhdr
+            fontawesome5
+            footmisc
+            geometry
+            hyphen-dutch
+            hyphen-french
+            hyphen-german
+            hyperref
+            iftex
+            lastpage
+            makecell
+            multirow
+            parskip
+            pdfpages
+            selnolig
+            setspace
+            textcase
+            titlesec
+            tocloft
+            ucharcat
+            unicode-math
+            url
+            xcolor
+            xurl
+          extra-packages: |
+            inbo/flandersqmd@hotfix
+          cmd: |
+            sudo mkdir -p /usr/local/share/fonts/truetype/calibri
+            sudo cp _extensions/flandersqmd-book/fonts/calibri*.ttf /usr/local/share/fonts/truetype/calibri/
+            mkdir -p ${HOME}/.fonts
+            wget -O ${HOME}/.fonts/Inconsolatazi4-Regular.otf http://mirrors.ctan.org/fonts/inconsolata/opentype/Inconsolatazi4-Regular.otf
+            wget -O ${HOME}/.fonts/Inconsolatazi4-Bold.otf http://mirrors.ctan.org/fonts/inconsolata/opentype/Inconsolatazi4-Bold.otf
+            sudo fc-cache -f -v
 
-   publish:
+  publish:
     name: deploy-gh-pages
     runs-on: ubuntu-24.04
     needs: quarto
