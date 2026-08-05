@@ -1,7 +1,6 @@
 {
   "description": "<p><strong>Ecology<\/strong> (from oicos, <!-- spell-check: ignore --> “house”, or “environment”; logia, “study of”) is the branch of <a href=\"http://www.dictionary.com/browse/ecology%7Ctitle=the%20definition%20of%20ecology%7Cwebsite=Dictionary.com%7Caccess-date=2018-02-20\">biology<\/a> which studies the interactions among organisms and their environment. Objects of study include interactions of organisms with each other and with abiotic components of their environment. Topics of interest include the biodiversity, distribution, biomass, and populations of organisms, as well as cooperation and competition within and between species. Ecosystems are dynamically interacting systems of organisms, the communities they make up, and the non-living components of their environment. Ecosystem processes, such as primary production, pedogenesis, nutrient cycling, and niche construction, regulate the flux of energy and matter through an environment. These processes are sustained by organisms with specific life history traits. Biodiversity means the varieties of species, genes, and ecosystems, enhances certain ecosystem services.<\/p>",
   "title": "Title for the example website. The optional subtitle.",
-  "shorttitle": "short-title",
   "upload_type": "publication",
   "access_right": "open",
   "license": "CC-BY-4.0",
@@ -10,7 +9,7 @@
     "Flandersqmd"
   ],
   "publication_type": "publication-report",
-  "publisher": "INBO",
+  "publisher": "Research Institute for Nature and Forest (INBO)",
   "contributors": [
     {
       "name": "Test, Given",

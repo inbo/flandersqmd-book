@@ -1,0 +1,76 @@
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+
+name: quarto
+
+jobs:
+  quarto:
+    runs-on: ubuntu-24.04
+    name: render
+    env:
+      RSPM: "https://packagemanager.posit.co/cran/__linux__/noble/latest"
+    permissions:
+      contents: read
+    steps:
+      - name: "Render quarto"
+        uses: inbo/actions/quarto_render@composite
+        with:
+          path: source
+          output: output
+          texlive: |
+            babel-dutch
+            babel-french
+            babel-german
+            booktabs
+            caption
+            colortbl
+            datetime2
+            emptypage
+            enumitem
+            etoolbox
+            fancyhdr
+            fontawesome5
+            footmisc
+            geometry
+            hyphen-dutch
+            hyphen-french
+            hyphen-german
+            hyperref
+            iftex
+            lastpage
+            makecell
+            multirow
+            parskip
+            pdfpages
+            selnolig
+            setspace
+            textcase
+            titlesec
+            tocloft
+            ucharcat
+            unicode-math
+            url
+            xcolor
+            xurl
+          extra-packages: |
+            inbo/flandersqmd@hotfix
+          cmd: |
+            sudo mkdir -p /usr/local/share/fonts/truetype/calibri
+            sudo cp _extensions/flandersqmd-book/fonts/calibri*.ttf /usr/local/share/fonts/truetype/calibri/
+            mkdir -p ${HOME}/.fonts
+            wget -O ${HOME}/.fonts/Inconsolatazi4-Regular.otf http://mirrors.ctan.org/fonts/inconsolata/opentype/Inconsolatazi4-Regular.otf
+            wget -O ${HOME}/.fonts/Inconsolatazi4-Bold.otf http://mirrors.ctan.org/fonts/inconsolata/opentype/Inconsolatazi4-Bold.otf
+            sudo fc-cache -f -v
+
+  publish:
+    name: deploy-gh-pages
+    runs-on: ubuntu-24.04
+    needs: quarto
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+    steps:
+      - name: "Deploy gh-pages"
+        uses: inbo/actions/quarto_publish@composite
