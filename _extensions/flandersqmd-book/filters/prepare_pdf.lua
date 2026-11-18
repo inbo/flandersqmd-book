@@ -239,7 +239,45 @@ local display_affiliation = function(unique_affiliations)
   return pandoc.RawInline("latex", z)
 end
 
+-- Chapters with `# Title {.landscape}` are rendered entirely in landscape,
+-- including the chapter title page.
+local function landscape_chapters(doc)
+  local blocks = pandoc.List()
+  local open = false
+  for _, block in ipairs(doc.blocks) do
+    if block.t == "Header" and block.level == 1 then
+      if open then
+        blocks:insert(pandoc.RawBlock("latex", "\\end{landscape}"))
+        open = false
+      end
+      if block.classes:includes("landscape") then
+        blocks:insert(pandoc.RawBlock("latex", "\\begin{landscape}"))
+        open = true
+      end
+    end
+    blocks:insert(block)
+  end
+  if open then
+    blocks:insert(pandoc.RawBlock("latex", "\\end{landscape}"))
+  end
+  doc.blocks = blocks
+  return doc
+end
+
+-- Avoid a blank page between the bibliography and the appendices.
+local function refs_clearpage(div)
+  if div.identifier == "refs" then
+    return {div, pandoc.RawBlock("latex", "\\let\\cleardoublepage\\clearpage")}
+  end
+end
+
 return {
+  {
+    Div = refs_clearpage
+  },
+  {
+    Pandoc = landscape_chapters
+  },
   {
     Meta = function(meta)
       meta.pagefooter = pdf_footer(meta)
