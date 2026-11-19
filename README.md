@@ -36,6 +36,14 @@ Visit https://inbo.github.io/flandersqmd-book/ to view the rendered version of t
 
 ## Installation
 
+### Interactive installation
+
+We strongly recommend that you use the [`flandersqmd::create_report()`](https://inbo.github.io/flandersqmd/reference/create_report.html) function.
+This function will guide you interactively through the process and fill in the blanks were needed.
+It stores the information you enter about persons and organisations locally, so you can easily reuse it for future reports and projects.
+
+### Manual installation
+
 **1.** Start by setting up a quarto book project.
 You can find more information on how to do this in the [quarto documentation](https://quarto.org/docs/books/).
 
@@ -61,6 +69,7 @@ project:
     - "!LICENSE.md" #ignore LICENSE.md
     - "!README.md" #ignore README.md
   output-dir: output
+  post-render: _extensions/inbo/flandersqmd-book/filters/post_render.R
 ```
 
 **4.** Replace the `format:` section in your `_quarto.yml` file with the following code:
