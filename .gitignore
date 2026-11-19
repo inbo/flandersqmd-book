@@ -1,3 +1,4 @@
+
 !source/**/_extensions/**
 *.Rproj
 *.[rR][dD]ata
@@ -28,9 +29,9 @@
 .Ruserdata
 .httr-oauth
 .quarto
+/.luarc.json
 docs
 libs
 output
 renv/library
-
-/.luarc.json
+tests/testthat/_problems

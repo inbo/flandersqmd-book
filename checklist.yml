@@ -25,3 +25,4 @@ pak:
 - pdftools
 - quarto
 - colorspace
+gha_install: []

@@ -7,15 +7,16 @@ name: check-project
 
 jobs:
   check-src:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     name: "check project with checklist"
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RSPM: "https://packagemanager.posit.co/cran/__linux__/resolute/latest"
     permissions:
       contents: read
     steps:
-      - uses: inbo/actions/check_project@composite
+      - uses: inbo/actions/check_project@main
         with:
           cmd: |
-            Rscript -e 'install.packages("pak")'
             Rscript -e 'pak::pkg_install("inbo/flandersqmd@hotfix")'
