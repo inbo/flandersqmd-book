@@ -245,6 +245,13 @@ local function landscape_chapters(doc)
   local blocks = pandoc.List()
   local open = false
   for _, block in ipairs(doc.blocks) do
+    -- Book parts arrive as a Div with class `quarto-book-part`. They must be
+    -- typeset in portrait, so close any open landscape chapter before them.
+    if open and block.t == "Div" and
+      block.classes:includes("quarto-book-part") then
+      blocks:insert(pandoc.RawBlock("latex", "\\end{landscape}"))
+      open = false
+    end
     if block.t == "Header" and block.level == 1 then
       if open then
         blocks:insert(pandoc.RawBlock("latex", "\\end{landscape}"))
