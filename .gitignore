@@ -35,3 +35,8 @@ libs
 output
 renv/library
 tests/testthat/_problems
+cover.txt
+*.fdb_latexmk
+*.xdv
+/.quarto/
+**/*.quarto_ipynb

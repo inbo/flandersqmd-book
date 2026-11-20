@@ -134,6 +134,7 @@ book:
         - equations.md
         - citations.md
         - language.md
+        - landscape.md
     - part: Code generated content
       chapters:
         - code.qmd
