@@ -114,6 +114,19 @@ book:
 
 **7.** Add `{{< colophon >}}` to the top of the `index.md` file to include the colophon.
 
+### Updating the extension
+
+You install a copy of the extension into your report.
+Hence you need to update the extension manually when needed.
+
+To update the extensions you can run either of the following commands
+
+- From the command line: `quarto install extension inbo/flandersqmd-book`
+- In R: `quarto::quarto_add_extension("inbo/flandersqmd-book")`
+
+Note that you must run the command when the working directory is at the root of your report.
+You need to run it for every report that you want to be updated.
+
 ## `flandersqmd` settings
 
 ### Required settings with default values
