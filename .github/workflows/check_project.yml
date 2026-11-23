@@ -19,4 +19,5 @@ jobs:
       - uses: inbo/actions/check_project@main
         with:
           cmd: |
+            Rscript -e 'install.packages("pak")'
             Rscript -e 'pak::pkg_install("inbo/flandersqmd@hotfix")'
