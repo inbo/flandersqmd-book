@@ -14,8 +14,8 @@
 
 # Quarto extension providing the corporate identity of the Flemish government for reports
 
-[Onkelinx, Thierry![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-8804-4216)[^aut][^cre][^INBO];
-[Research Institute for Nature and Forest (INBO)](mailto:info%40inbo.be)[^cph][^fnd][^pbl]
+[Onkelinx, Thierry![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-8804-4216)[^aut] [^cre] [^INBO];
+[Research Institute for Nature and Forest (INBO)](mailto:info%40inbo.be)[^cph] [^fnd] [^pbl]
 
 [^aut]: author
 [^cph]: copyright holder
@@ -84,8 +84,9 @@ format:
 [Below](#flandersqmd-settings) is the full list of settings that can be used.
 
 **6.** Update the settings in the `book:` section in the `_quarto.yml` file.
-- Remove `title`, `author` and `date` information from the `book:` section.
-- Update the `chapters:` subsection to include the chapters of your report.
+
+  - Remove `title`, `author` and `date` information from the `book:` section.
+  - Update the `chapters:` subsection to include the chapters of your report.
 
 ```
 book:
