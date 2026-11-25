@@ -2,28 +2,52 @@ function is_empty(s)
   return s == nil or s == ''
 end
 
-function translation_entity(result, lang, entity)
+function translation_entity(result, lang, entity, office)
   if (entity == "INBO") then
     result.titlelogo = "inbo-logo.pdf"
     if (lang == "nl-BE") then
-      result.address = "INBO Brussel, Herman Teirlinckgebouw, Havenlaan 88 bus 73, 1000 Brussel"
-      result.city = "Brussel"
+      if (office == "Geraardsbergen") then
+        result.address = "INBO Geraardsbergen, Gaverstraat 4, 9500 Geraardsbergen"
+        result.city = "Geraardsbergen"
+      elseif (office == "Linkebeek") then
+        result.address = "INBO Linkebeek, Dwersbos 28, 1630 Linkebeek"
+        result.city = "Linkebeek"
+      else
+        result.address = "INBO Brussel, Herman Teirlinckgebouw, Havenlaan 88 bus 73, 1000 Brussel"
+        result.city = "Brussel"
+      end
       result.mission = "Het INBO is het onderzoeksinstituut van de Vlaamse overheid dat via onafhankelijk toegepast wetenschappelijk onderzoek, data- en kennisontsluiting het biodiversiteitsbeleid en -beheer onderbouwt en evalueert."
       result.name = "Instituut voor Natuur- en Bosonderzoek"
       result.tagline = "vlaanderen-wetenschap.pdf"
       result.url = "https://www.vlaanderen.be/inbo"
       result.url_text = "vlaanderen.be/inbo"
     elseif (lang == "fr-FR") then
-      result.address = "INBO Bruxelles, Herman Teirlinckgebouw, Avenu du Port 88 boîte 73, 1000 Bruxelles"
-      result.city = "Bruxelles"
+      if (office == "Geraardsbergen") then
+        result.address = "INBO Grammont, Gaverstraat 4, 9500 Grammont"
+        result.city = "Grammont"
+      elseif (office == "Linkebeek") then
+        result.address = "INBO Linkebeek, Dwersbos 28, 1630 Linkebeek"
+        result.city = "Linkebeek"
+      else
+        result.address = "INBO Bruxelles, Herman Teirlinckgebouw, Avenu du Port 88 boîte 73, 1000 Bruxelles"
+        result.city = "Bruxelles"
+      end
       result.mission = "L'Institut de Recherche sur la Nature et les Forêts (« Instituut voor Natuur- en Bosonderzoek », INBO) est un institut de recherche du gouvernement flamand qui étaye et évalue la politique et la gestion en matière de biodiversité par le biais de la recherche scientifique appliquée indépendante et par l'intégration et la dissémination publique des données et des connaissances."
       result.name = "l'Institut de Recherche sur la Nature et les Forêts"
       result.tagline = "flanders-state-art.pdf"
       result.url = "https://www.vlaanderen.be/inbo/en-gb/homepage/"
       result.url_text = "vlaanderen.be/inbo"
     else
+      if (office == "Geraardsbergen") then
+        result.address = "INBO Geraardsbergen, Gaverstraat 4, 9500 Geraardsbergen"
+        result.city = "Geraardsbergen"
+      elseif (office == "Linkebeek") then
+        result.address = "INBO Linkebeek, Dwersbos 28, 1630 Linkebeek"
+        result.city = "Linkebeek"
+      else
       result.address = "INBO Brussels, Herman Teirlinckgebouw, Havenlaan 88 bus 73, 1000 Brussels"
       result.city = "Brussels"
+      end
       result.mission = "The Research Institute for Nature and Forest (INBO) is a research institute of the Flemish government. Through independent applied scientific research, open data and knowledge, integration and disclosure, it underpins and evaluates biodiversity policy and management."
       result.name = "Research Institute for Nature and Forest"
       result.tagline = "flanders-state-art.pdf"
@@ -47,7 +71,7 @@ function translation_entity(result, lang, entity)
   return result
 end
 
-function translation(lang, entity)
+function translation(lang, entity, office)
   local result
   if (lang == "nl-BE") then
     result = {
@@ -68,6 +92,7 @@ function translation(lang, entity)
       reviewer = "Nagelezen door",
       reviewer_pdf = "Reviewers",
       series = "Rapporten van het",
+      van = "van",
       vu = "Verantwoordelijke uitgever",
       year = "Gepubliceerd in"
     }
@@ -90,6 +115,7 @@ function translation(lang, entity)
       reviewer = "Examiné par",
       reviewer_pdf = "Reviewers",
       series = "Rapports de",
+      van = "de",
       vu = "Éditeur responsable",
       year = "Publié en"
     }
@@ -107,16 +133,17 @@ function translation(lang, entity)
       export = "Export reference to",
       iseries = "Internal reports of the",
       location = "Location",
-      mission = "Misson statement",
+      mission = "Mission statement",
       ordernr = "Order number",
       reviewer = "Reviewed by",
       reviewer_pdf = "Reviewers",
       series = "Reports of the",
+      van = "of",
       vu = "Responsible publisher",
       year = "Published during"
     }
   end
-  return translation_entity(result, lang, entity)
+  return translation_entity(result, lang, entity, office)
 end
 
 function abbreviate_person(person, i, type, n)
@@ -233,14 +260,18 @@ end
 return {
   {
     Meta = function(meta)
+      if (is_empty(meta.flandersqmd.office)) then
+        meta.flandersqmd.office = ""
+      end
       if is_empty(meta.flandersqmd.entity) then
         meta.translation = translation(
-          pandoc.utils.stringify(meta.lang), "INBO"
+          pandoc.utils.stringify(meta.lang), "INBO", pandoc.utils.stringify(meta.flandersqmd.office)
         )
       else
         meta.translation = translation(
           pandoc.utils.stringify(meta.lang),
-          pandoc.utils.stringify(meta.flandersqmd.entity)
+          pandoc.utils.stringify(meta.flandersqmd.entity),
+          pandoc.utils.stringify(meta.flandersqmd.office)
         )
       end
       if pandoc.utils.stringify(meta.lang) ~= 'nl-BE' or is_empty(meta.flandersqmd.level) or tonumber(pandoc.utils.stringify(meta.flandersqmd.level)) < 2 then

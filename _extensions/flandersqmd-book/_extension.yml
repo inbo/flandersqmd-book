@@ -1,6 +1,6 @@
 title: Corporate identity of the Flemish government quarto books
 author: Thierry Onkelinx
-version: 0.1.1
+version: 0.1.2
 quarto-required: ">=1.4.0"
 contributes:
   project:
@@ -29,9 +29,15 @@ contributes:
       filters:
         - filters/translations.lua
     pdf:
+      documentclass: scrbook
+      classoption:
+        - twoside
+        - openany
+      papersize: a4
+      colorlinks: true
       template-partials:
         - "partials/before-body.tex"
-        - "partials/doc-class.tex"
+        - "partials/after-header-includes.latex"
       format-resources:
         - img/cc-by.eps
         - img/flanders-state-art.pdf
@@ -47,7 +53,8 @@ contributes:
       shortcodes:
         - shortcodes/colophon.lua
         - shortcodes/footer.lua
-      pdf-engine: xelatex
+      pdf-engine: latexmk
+      pdf-engine-opt: -xelatex
       toc: false
       lof: false
       lot: false

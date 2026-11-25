@@ -1,25 +1,20 @@
 {
-  "license": "CC BY 4.0",
   "access_right": "open",
-  "title": "Quarto extension providing the corporate identity of the Flemish government for reports",
-  "version": "0.1.1",
-  "description": "<p>This quarto extension builds on the quarto <a href=\"https://quarto.org/docs/books/\">book format<\/a> and provides the corporate identity of the Flemish government for reports. A full example is available in the <code>source<\/code> folder in the <a href=\"https://github.com/inbo/flandersqmd-book/\">GitHub repo<\/a>. Visit https://inbo.github.io/flandersqmd-book/ to view the rendered version of the example.<\/p>",
-  "keywords": [
-    "quarto",
-    "corporate identity"
+  "communities": [
+    {
+      "identifier": "inbo"
+    }
   ],
-  "upload_type": "software",
-  "language": "eng",
   "contributors": [
     {
       "name": "Onkelinx, Thierry",
       "affiliation": "Research Institute for Nature and Forest (INBO)",
       "orcid": "0000-0001-8804-4216",
-      "type": "contactperson"
+      "type": "ContactPerson"
     },
     {
       "name": "Research Institute for Nature and Forest (INBO)",
-      "type": "rightsholder"
+      "type": "RightsHolder"
     }
   ],
   "creators": [
@@ -29,9 +24,16 @@
       "orcid": "0000-0001-8804-4216"
     }
   ],
-  "communities": [
-    {
-      "identifier": "inbo"
-    }
-  ]
+  "description": "<p>This quarto extension builds on the quarto <a href=\"https://quarto.org/docs/books/\">book format<\/a> and provides the corporate identity of the Flemish government for reports. A full example is available in the <code>source<\/code> folder in the <a href=\"https://github.com/inbo/flandersqmd-book/\">GitHub repo<\/a>. Visit https://inbo.github.io/flandersqmd-book/ to view the rendered version of the example.<\/p>",
+  "keywords": [
+    "quarto",
+    "corporate identity",
+    "inbo_version"
+  ],
+  "language": "eng",
+  "license": "cc-by-4.0",
+  "publisher": "Research Institute for Nature and Forest (INBO)",
+  "title": "Quarto extension providing the corporate identity of the Flemish government for reports",
+  "upload_type": "software",
+  "version": "0.1.2"
 }

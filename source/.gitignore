@@ -5,3 +5,5 @@ _freeze
 /*.sty
 /*.tex
 site_libs
+
+**/*.quarto_ipynb

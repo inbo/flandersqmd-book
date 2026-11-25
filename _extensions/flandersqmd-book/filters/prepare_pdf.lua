@@ -60,8 +60,7 @@ local function title_author(meta)
 end
 
 --[[format colophon person]]
-local function colophon_person(person, i, type)
-  local res = ''
+local function colophon_person(res, person, i, type, affiliations)
   if i > 1 then
     res = res .. ', '
   end
@@ -69,8 +68,7 @@ local function colophon_person(person, i, type)
     res = res .. '!!! flandersqmd.' .. type ..' element ' .. i .. ' has no name element!!!'
   else
     if not is_empty(person.orcid) then
-      res = res .. '\\href{https://orcid.org/' ..
-        pandoc.utils.stringify(person.orcid) .. '}{'
+      res = res .. '\\href{https://orcid.org/' .. pandoc.utils.stringify(person.orcid) .. '}{'
     end
     if is_empty(person.name.given) then
       res = res .. '!!! flandersqmd.' .. type .. ' element ' .. i .. ' name element has no given element!!!'
@@ -81,6 +79,40 @@ local function colophon_person(person, i, type)
       res = res .. '!!! flandersqmd.' .. type .. ' element ' .. i .. ' name element has no family element!!!'
     else
       res = res .. ' ' .. pandoc.utils.stringify(person.name.family)
+    end
+    if not is_empty(person.affiliation) then
+      local indices = {}
+
+      -- Helper to find the 1-based index of an affiliation in meta_affiliations
+      local function get_affil_index(target_affil)
+        local target_str = pandoc.utils.stringify(target_affil)
+        for idx, m_affil in ipairs(affiliations) do
+          if pandoc.utils.stringify(m_affil) == target_str then
+            return idx
+          end
+        end
+        return nil
+      end
+
+      -- Check if person.affiliation is a List or a single value
+      if pandoc.utils.type(person.affiliation) == 'List' then
+        for _, affil in ipairs(person.affiliation) do
+          local idx = get_affil_index(affil)
+          if idx then
+            table.insert(indices, tostring(idx))
+          end
+        end
+      else
+        local idx = get_affil_index(person.affiliation)
+        if idx then
+          table.insert(indices, tostring(idx))
+        end
+      end
+
+      -- If we found matching affiliations, append them as a LaTeX superscript
+      if #indices > 0 then
+        res = res .. '\\textsuperscript{' .. table.concat(indices, ',') .. '}'
+      end
     end
     if not is_empty(person.orcid) then
       res = res .. ' \\includegraphics[height=\\fontsizebase]{orcid.eps}}'
@@ -103,26 +135,25 @@ local function corresponding_person(person, i, type)
   return res
 end
 
-
 local function colophon_author(meta)
+  local z = ''
   if is_empty(meta.flandersqmd.author) then
     z = '!!! Missing flandersqmd.author !!!'
   else
-    z = ''
     for i, person in pairs(meta.flandersqmd.author) do
-      z = z .. colophon_person(person, i, 'author')
+      z = colophon_person(z, person, i, 'author', meta.affiliation)
     end
   end
   return pandoc.RawInline("latex", z)
 end
 
 local function reviewer(meta)
+  local z = ''
   if is_empty(meta.flandersqmd.reviewer) then
     z = '!!! Missing flandersqmd.reviewer !!!'
   else
-    z = ''
     for i, person in pairs(meta.flandersqmd.reviewer) do
-      z = z .. colophon_person(person, i, 'reviewer')
+      z = colophon_person(z, person, i, 'reviewer', meta.affiliation)
     end
   end
   return pandoc.RawInline("latex", z)
@@ -165,13 +196,103 @@ local function client(client, tag, url, logo)
   return pandoc.RawInline("latex", z)
 end
 
+local function get_affiliation(meta)
+  local seen_affiliations = {}
+  local unique_affiliations = pandoc.List()
+
+  -- Helper function to deduplicate and store affiliations
+  local function add_affiliation(affil)
+    -- Stringify the AST element to get a comparable string key
+    local text_key = pandoc.utils.stringify(affil)
+
+    if not seen_affiliations[text_key] then
+      seen_affiliations[text_key] = true
+      unique_affiliations:insert(affil)
+    end
+  end
+
+  for _, author in ipairs(meta.flandersqmd.author) do
+    if author.affiliation then
+      -- 3. Handle both lists of affiliations and single affiliation strings
+      if pandoc.utils.type(author.affiliation) == 'List' then
+        for _, affil in ipairs(author.affiliation) do
+          add_affiliation(affil)
+        end
+      else
+        -- It's a single value (e.g., Inlines)
+        add_affiliation(author.affiliation)
+      end
+    end
+  end
+
+  return unique_affiliations
+end
+
+local display_affiliation = function(unique_affiliations)
+  local z = ''
+  for i, affil in ipairs(unique_affiliations) do
+    if (i > 1) then
+      z = z .. '\\\\\n'
+    end
+    z = z .. '\\textsuperscript{' .. i .. '}' .. pandoc.utils.stringify(affil)
+  end
+  return pandoc.RawInline("latex", z)
+end
+
+-- Chapters with `# Title {.landscape}` are rendered entirely in landscape,
+-- including the chapter title page.
+local function landscape_chapters(doc)
+  local blocks = pandoc.List()
+  local open = false
+  for _, block in ipairs(doc.blocks) do
+    -- Book parts arrive as a Div with class `quarto-book-part`. They must be
+    -- typeset in portrait, so close any open landscape chapter before them.
+    if open and block.t == "Div" and
+      block.classes:includes("quarto-book-part") then
+      blocks:insert(pandoc.RawBlock("latex", "\\end{landscape}"))
+      open = false
+    end
+    if block.t == "Header" and block.level == 1 then
+      if open then
+        blocks:insert(pandoc.RawBlock("latex", "\\end{landscape}"))
+        open = false
+      end
+      if block.classes:includes("landscape") then
+        blocks:insert(pandoc.RawBlock("latex", "\\begin{landscape}"))
+        open = true
+      end
+    end
+    blocks:insert(block)
+  end
+  if open then
+    blocks:insert(pandoc.RawBlock("latex", "\\end{landscape}"))
+  end
+  doc.blocks = blocks
+  return doc
+end
+
+-- Avoid a blank page between the bibliography and the appendices.
+local function refs_clearpage(div)
+  if div.identifier == "refs" then
+    return {div, pandoc.RawBlock("latex", "\\let\\cleardoublepage\\clearpage")}
+  end
+end
+
 return {
+  {
+    Div = refs_clearpage
+  },
+  {
+    Pandoc = landscape_chapters
+  },
   {
     Meta = function(meta)
       meta.pagefooter = pdf_footer(meta)
       meta.title_author = title_author(meta)
+      meta.affiliation = get_affiliation(meta)
       meta.colophon_author = colophon_author(meta)
       meta.reviewer = reviewer(meta)
+      meta.affiliation = display_affiliation(meta.affiliation)
       meta.corresponding = corresponding(meta)
       if not is_empty(meta.flandersqmd.client) then
         meta.client = client(
